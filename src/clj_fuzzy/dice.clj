@@ -1,15 +1,15 @@
 ;; -------------------------------------------------------------------
-;; clj-fuzzy White Similarity
+;; clj-fuzzy Sorensen-Dice Coefficient
 ;; -------------------------------------------------------------------
 ;;
 ;;
 ;;   Author: PLIQUE Guillaume (Yomguithereal)
 ;;   Version: 0.1
-;;   Source: http://www.catalysoft.com/articles/strikeamatch.html
-;;   Original Author: Simon White
+;;   Explanation:
+;;     http://en.wikipedia.org/wiki/S%C3%B8rensen%E2%80%93Dice_coefficient
 ;;
 
-(ns clj-fuzzy.white
+(ns clj-fuzzy.dice
   (:require clojure.string)
   (:use [clj-fuzzy.helpers :only [slice in?]]
         [clojure.set :only [intersection]]))
@@ -22,8 +22,8 @@
     (flatten (map #(pairing %) ts))))
 
 ;; OPTIMIZE: do we need to round up the result?
-(defn similarity
-  "Compute the White similarity between two [strings]."
+(defn coefficient
+  "Compute the Dice coefficient between two [strings]."
   [string1 string2]
   (let [p1 (letter-pairs string1)
         p2 (letter-pairs string2)
