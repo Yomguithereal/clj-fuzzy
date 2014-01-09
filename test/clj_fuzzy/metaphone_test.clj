@@ -18,4 +18,5 @@
   (is (= "WL" (process-word "well")))
   (is (= "AM" (process-word "am")))
   (is (= "S" (process-word "say")))
-  (is (= "FSNT" (process-word "pheasant"))))
+  (is (= "FSNT" (process-word "pheasant")))
+  (is (= "KT" (process-word "god"))))

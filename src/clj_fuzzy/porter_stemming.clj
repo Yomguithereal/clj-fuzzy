@@ -6,7 +6,6 @@
 ;;   Author: PLIQUE Guillaume (Yomguithereal)
 ;;   version: 0.1
 ;;
-
 (ns clj-fuzzy.porter-stemming
   (:require clojure.string)
   (:use [clj-fuzzy.helpers :only [re-test? chop]]))
