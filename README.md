@@ -33,7 +33,6 @@ Then include the same vector within your `project.clj` and you should be good to
 * [Sorensen / Dice coefficient](#dice-coefficient)
 * [Levensthein distance](#levensthein-distance)
 * [Porter stemming](#porter-stemming)
-
 * [Metaphone](#metaphone)
 * [Soundex](#soundex)
 
@@ -76,8 +75,6 @@ Then include the same vector within your `project.clj` and you should be good to
 "build"
 ```
 
----
-
 ### Metaphone
 ```clj
 (ns my.clojure-namespace
@@ -110,7 +107,7 @@ The library is very young and subject to API changes.
 * Add algorithm dealing with other languages than English.
 * Add more algorithms to the library.
 * Optimize the algorithms' implementations.
-* Offer a better turned API.
+* Offer a better API.
 
 ## Contribution
 Please feel free to contribute by forking this repo. Just be sure to add relevant unit tests and pass them all before submitting any contribution.
