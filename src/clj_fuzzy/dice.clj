@@ -8,7 +8,6 @@
 ;;   Explanation:
 ;;     http://en.wikipedia.org/wiki/S%C3%B8rensen%E2%80%93Dice_coefficient
 ;;
-
 (ns clj-fuzzy.dice
   (:require clojure.string)
   (:use [clj-fuzzy.helpers :only [slice in?]]

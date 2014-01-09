@@ -9,7 +9,6 @@
 ;;     http://www.learningclojure.com/2010/11/
 ;;            levenshtein-distance-edit-distance.html
 ;;
-
 (ns clj-fuzzy.levensthein)
 
 (defn distance
