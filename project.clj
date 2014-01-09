@@ -1,6 +1,5 @@
 (defproject clj-fuzzy "0.1.0"
-  :description (str "A handy compilation of algorithms" 
-                    "dealing with fuzzy strings and phonetics.")
+  :description "A handy compilation of algorithms dealing with fuzzy strings and phonetics."
   :url "https://github.com/Yomguithereal/clj-fuzzy"
   :license {:name "MIT"
             :url "http://opensource.org/licenses/MIT"}
