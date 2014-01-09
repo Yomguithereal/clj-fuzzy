@@ -1,6 +1,7 @@
-(defproject clj-fuzzy "0.1.0-SNAPSHOT"
-  :description "FIXME: write description"
-  :url "http://example.com/FIXME"
-  :license {:name "Eclipse Public License"
-            :url "http://www.eclipse.org/legal/epl-v10.html"}
+(defproject clj-fuzzy "0.1.0"
+  :description (str "A handy compilation of algorithms" 
+                    "dealing with fuzzy strings and phonetics.")
+  :url "https://github.com/Yomguithereal/clj-fuzzy"
+  :license {:name "MIT"
+            :url "http://opensource.org/licenses/MIT"}
   :dependencies [[org.clojure/clojure "1.5.1"]])

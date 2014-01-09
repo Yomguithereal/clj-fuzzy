@@ -5,7 +5,7 @@
 ;;
 ;;   Author: PLIQUE Guillaume (Yomguithereal)
 ;;   Version: 0.1
-;;   Inspiration:
+;;   Source:
 ;;     http://www.learningclojure.com/2010/11/
 ;;            levenshtein-distance-edit-distance.html
 ;;
@@ -13,7 +13,7 @@
 (ns clj-fuzzy.levensthein)
 
 (defn distance
-  "Compute the levensthein distance between two sequences."
+  "Compute the levensthein distance between two [sequences]."
   [sequence1 sequence2]
   (cond
     (empty? sequence1) (count sequence2)

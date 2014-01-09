@@ -33,6 +33,8 @@
   [string sequence]
   (boolean (some #{string} sequence)))
 
+(def not-in? (complement in?))
+
 (defn clean-non-alphabetical
   "Drop every non alphabetical character in [word]."
   [word]
