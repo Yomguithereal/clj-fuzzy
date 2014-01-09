@@ -15,11 +15,11 @@
         [clojure.set :only [intersection]]))
 
 (defn- pairing [word]
-  (map #(slice word % 2) (range 0 (- (count word) 1))))
+  (map #(slice word % 2) (range 0 (dec (count word)))))
 
 (defn- letter-pairs [string]
   (let [ts (clojure.string/split (clojure.string/upper-case string) #"\s+")]
-    (flatten (map #(pairing %) ts))))
+    (flatten (map pairing ts))))
 
 ;; OPTIMIZE: do we need to round up the result?
 (defn coefficient

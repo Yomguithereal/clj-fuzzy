@@ -32,7 +32,7 @@
   (let [codes-vec (vec codes)
         idxs (range 0 (count codes))]
     (map #(codes-vec %)
-         (filter #(not= (codes-vec %) (get codes-vec (+ 1 %))) idxs))))
+         (filter #(not= (codes-vec %) (get codes-vec (inc %))) idxs))))
 
 (defn- clean-code-sequence
   "Clean the [code-sequence] by checking [first-letter] collocation."
