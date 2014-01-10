@@ -8,7 +8,8 @@
 ;;
 (ns clj-fuzzy.soundex
   (:require clojure.string)
-  (:use [clj-fuzzy.helpers :only [clean-non-alphabetical]]))
+  (:use [clj-fuzzy.helpers :only [clean-non-alphabetical
+                                  successive-deduplicate]]))
 
 ;; Utilities
 (def ^:private translation
@@ -25,14 +26,6 @@
   [processed-word]
   (filter #(not= \D %)
           (map get-code processed-word)))
-
-(defn- successive-deduplicate
-  "Drop the successive duplicates in sequence."
-  [codes]
-  (let [codes-vec (vec codes)
-        idxs (range 0 (count codes))]
-    (map #(codes-vec %)
-         (filter #(not= (codes-vec %) (get codes-vec (inc %))) idxs))))
 
 (defn- clean-code-sequence
   "Clean the [code-sequence] by checking [first-letter] collocation."

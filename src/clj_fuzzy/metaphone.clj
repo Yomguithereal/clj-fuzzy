@@ -40,7 +40,7 @@
     #"v" "F"
     #"(?!^)[aeiou]+" ""))
 
-(defn process-word
+(defn process
   "Apply the metaphone substitution on one [word]."
   [word]
   (let [s (clojure.string/lower-case (clean-non-alphabetical word))]
