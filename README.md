@@ -19,6 +19,8 @@ To install the lastest version from [clojars](https://clojars.org/), just add th
 [clj-fuzzy "0.1.0"]
 ```
 
+Then run `lein deps` to process your dependencies.
+
 To install the latest version from the current source, clone the repository and install with leiningen.
 
 ```
@@ -93,7 +95,7 @@ Then include the same vector within your `project.clj` and you should be good to
 (ns my.clojure-namespace
   (:require clj-fuzzy.soundex))
 
-;; Compute the metaphone code for a single word
+;; Compute the soundex code of a single name
 (clj-fuzzy.soundex/process "Ashcroft")
 "A261"
 
@@ -104,10 +106,10 @@ Then include the same vector within your `project.clj` and you should be good to
 The library is very young and subject to API changes.
 
 ## Todo
-* Add algorithm dealing with other languages than English.
+* Add algorithms dealing with other languages than English.
 * Add more algorithms to the library.
 * Optimize the algorithms' implementations.
 * Offer a better API.
 
 ## Contribution
-Please feel free to contribute by forking this repo. Just be sure to add relevant unit tests and pass them all before submitting any contribution.
+Please feel free to contribute by forking this repo. Just be sure to add relevant unit tests and pass them all before submitting any code.
