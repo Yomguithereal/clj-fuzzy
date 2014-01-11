@@ -1,5 +1,5 @@
 # clj-fuzzy
-clj-fuzzy is a Clojure library providing a compilation of famous algorithms dealing with fuzzy strings and phonetics.
+clj-fuzzy is a Clojure library providing a collection of famous algorithms dealing with fuzzy strings and phonetics.
 
 ## Available algorithms
 
