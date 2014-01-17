@@ -16,9 +16,10 @@
     #"^cough" "cou2f"
     #"^rough" "rou2f"
     #"^tough" "tou2f"
+    #"^trough" "trou2f"
     #"^enough" "enou2f"
     #"^gn" "2n"
-    #"mb$" "m2"
+    #"^mb" "m2"
     #"cq" "2q"
     #"ci" "si"
     #"ce" "se"
@@ -36,8 +37,12 @@
     #"b" "p"
     #"sh" "s2"
     #"z" "s"
-    #"^[aieou]{1}" "A"
+    #"^[aieou]" "A"
     #"[aeiou]" "3"
+    #"i" "y"
+    #"^y3" "Y3"
+    #"^y" "A"
+    #"y" "3"
     #"3gh3" "3kh3"
     #"gh" "22"
     #"g" "k"
@@ -49,23 +54,20 @@
     #"m+" "M"
     #"n+" "N"
     #"w3" "W3"
-    #"wy" "Wy"
     #"wh3" "Wh3"
-    #"why" "Why"
+    #"w$" "3"
     #"w" "2"
     #"^h" "A"
     #"h" "2"
     #"r3" "R3"
-    #"ry" "Ry"
+    #"r$" "3"
     #"r" "2"
     #"l3" "L3"
-    #"ly" "Ly"
+    #"l$" "3"
     #"l" "2"
-    #"j" "y"
-    #"^y3" "Y3"
-    #"^y" "2"
-    #"2s" ""
-    #"3s" ""))
+    #"2" ""
+    #"3$" "A"
+    #"3" ""))
 
 (defn- prep-word
   "Prep a [word] for its passage through the Caverphone algorithm."
@@ -80,5 +82,3 @@
   [word]
   (let [pword (prep-word word)]
     (pad (batch-replace pword replacements))))
-
-(process "Thompson")
