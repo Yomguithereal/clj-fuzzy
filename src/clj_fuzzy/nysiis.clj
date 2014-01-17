@@ -10,7 +10,7 @@
   (:require [clojure.string :as s])
   (:use [clj-fuzzy.helpers
          :only [batch-replace
-                successive-deduplicate
+                distinct-consecutive
                 clean-non-alphabetical]]))
 
 (def ^:private original-first-patterns
@@ -50,7 +50,7 @@
 
 (defn- second-step [string]
   (apply str
-    (successive-deduplicate
+    (distinct-consecutive
       (batch-replace (apply str (drop 1 string)) original-second-patterns))))
 
 (defn original

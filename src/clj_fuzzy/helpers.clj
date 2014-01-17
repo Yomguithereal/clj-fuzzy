@@ -23,13 +23,9 @@
   (let [replacement-list (partition 2 replacements)]
     (reduce #(apply clojure.string/replace %1 %2) string replacement-list)))
 
-(defn successive-deduplicate
-  "Drop successive duplicates in sequence."
-  [sequence]
-  (let [sequence-vec (vec sequence)
-        idxs (range 0 (count sequence))]
-    (map #(sequence-vec %)
-         (filter #(not= (sequence-vec %) (get sequence-vec (inc %))) idxs))))
+(defn distinct-consecutive
+  "Drop consecutive duplicates in sequence"
+  [sequence] (map first (partition-by identity sequence)))
 
 (defn re-test?
   "Test a [string] against a [regular-expression]."

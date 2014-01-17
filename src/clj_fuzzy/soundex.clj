@@ -9,7 +9,7 @@
 (ns clj-fuzzy.soundex
   (:require clojure.string)
   (:use [clj-fuzzy.helpers :only [clean-non-alphabetical
-                                  successive-deduplicate]]))
+                                  distinct-consecutive]]))
 
 ;; Utilities
 (def ^:private translation
@@ -44,4 +44,4 @@
         cleaned-sequence (clean-code-sequence code-sequence first-letter)]
     (pad (str first-letter
               (apply str (filter #(not= \0 %)
-                                 (successive-deduplicate cleaned-sequence)))))))
+                                 (distinct-consecutive cleaned-sequence)))))))
