@@ -16,7 +16,8 @@
   (is (= "TSKRMNXN" (p/metaphone "discrimination")))
   (is (= "A261" (p/soundex "Ashcroft")))
   (is (= "ANDARSAN" (p/nysiis "Anderson")))
-  (is (= "ANRKSN1111" (p/caverphone "Henricsson"))))
+  (is (= "ANRKSN1111" (p/caverphone "Henricsson")))
+  (is (= "CTHRN" (p/mra-codex "Catherine"))))
 
 (deftest metrics-test
   (is (= 2 (m/levensthein "book" "back")))
