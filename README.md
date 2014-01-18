@@ -14,12 +14,14 @@ clj-fuzzy is a Clojure library providing a collection of famous algorithms deali
 * [Metaphone](http://en.wikipedia.org/wiki/Metaphone)
 * [Soundex](http://en.wikipedia.org/wiki/Soundex)
 * [NYSIIS](http://en.wikipedia.org/wiki/New_York_State_Identification_and_Intelligence_System)
+* [Caverphone](http://en.wikipedia.org/wiki/Caverphone)
+* [Match Rating Approach Codex](http://en.wikipedia.org/wiki/Match_rating_approach)
 
 ## Installation
 To install the lastest version from [clojars](https://clojars.org/), just add the following vector to the `:dependencies` section of your `project.clj` file.
 
 ```clj
-[clj-fuzzy "0.1.2"]
+[clj-fuzzy "0.1.3"]
 ```
 
 Then run `lein deps` to process your dependencies.
@@ -48,6 +50,8 @@ clj-fuzzy ships with three API namespaces: `clj-fuzzy.metrics`, `clj-fuzzy.stemm
 * [Metaphone](#metaphone)
 * [Soundex](#soundex)
 * [NYSIIS](#nysiis)
+* [Caverphone](#caverphone)
+* [MRA Codex](#mra-codex)
 
 In order to be the simplest possible, the following examples `:use` the clj-fuzzy namespaces. But you should really rely on a cleaner `:require`.
 
@@ -128,6 +132,32 @@ In order to be the simplest possible, the following examples `:use` the clj-fuzz
 
 (nysiis "Mclaughlin")
 "MCLAGLAN"
+```
+
+### Caverphone
+```clj
+(ns my.clojure-namespace
+  (:use clj-fuzzy.phonetics))
+
+;; Compute the caverphone code of a single name
+(caverphone "Henrichsen")
+"ANRKSN1111"
+
+(caverphone "Mclaverty")
+"MKLFTA1111"
+```
+
+### MRA Codex
+```clj
+(ns my.clojure-namespace
+  (:use clj-fuzzy.phonetics))
+
+;; Compute the MRA codex of a single name
+(mra-codex "Catherine")
+"CTHRN"
+
+(mra-codex "Smith")
+"SMTH"
 ```
 
 ## Warnings
