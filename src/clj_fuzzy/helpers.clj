@@ -1,5 +1,5 @@
 ;; -------------------------------------------------------------------
-;; clj-fuzzy Double Metaphone
+;; clj-fuzzy Helper Functions
 ;; -------------------------------------------------------------------
 ;;
 ;;
@@ -14,8 +14,15 @@
   [string start length]
   (apply str (take length (drop start string))))
 
-(defn chop [string]
+(defn chop
+  "Drop the last character of a [string]."
+  [string]
   (subs string 0 (dec (count string))))
+
+(defn eat
+  "Drop the first letter of a [string]."
+  [string]
+  (apply str (drop 1 string)))
 
 (defn batch-replace
   "Apply several [replacements] to a [string]."
