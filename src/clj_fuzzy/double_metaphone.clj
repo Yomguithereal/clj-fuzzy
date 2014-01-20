@@ -19,6 +19,7 @@
 
 (def ^:private not-re-test? (complement re-test?))
 
+
 ;; Steps
 (defn- lookup-vowel [string pos] (if (= 0 pos) [:A :A 1] [nil nil 1]))
 
@@ -203,4 +204,143 @@
     (lookup-L-1 string pos length lastp)
     [:L :L 1]))
 
-(comment "")
+(defn- lookup-M [string pos lastp]
+  (if (or (and (= "UMB" (slice string (- pos 1) 3))
+               (or (= (dec lastp) pos)
+                   (= "ER" (slice string (+ pos 2) 2))))
+          (= "M" (slice string (+ pos 1) 1)))
+    [:M :M 2]
+    [:M :M 1]))
+
+(defn- lookup-N [string pos]
+  [:N :N (if (= "N" (slice string (+ pos 1) 1)) 2 1)])
+
+(defn- lookup-NY [string pos]
+  [:N :N 1])
+
+(defn- lookup-P [string pos]
+  (if (= "H" (slice string (+ pos 1) 1))
+    [:F :F 2]
+    [:P :P (if (re-test? #"^P|B$" (slice string (+ pos 1) 1)) 2 1)]))
+
+(defn- lookup-Q [string pos]
+  [:K :K (if (= "Q" (slice string (+ pos 1) 1)) 2 1)])
+
+(defn- lookup-R [string pos lastp]
+  (let [current (if (= "R" (slice string (+ pos 1) 1)) 2 1)]
+    (if (and (= lastp pos)
+             (slavo-germanic? string)
+             (= "IE" (slice string (- pos 2) 2))
+             (not-re-test? #"^M(E|A)$" (slice string (- pos 4) 2)))
+      [nil :R current]
+      [:R :R current])))
+
+(defn- lookup-S-1 [] [nil nil 1])
+
+(defn- lookup-S-2 [] [:X :S 1])
+
+(defn- lookup-S-3 [string pos]
+  (if (re-test? #"^H(EIM|OEK|OLM|OLZ)$" (slice string (+ pos 1) 4))
+    [:S :S 2]
+    [:X :X 2]))
+
+(defn- lookup-S-4 [string]
+  [:S (if (slavo-germanic? string) :S :X) 3])
+
+(defn- lookup-S-5 [string pos]
+  [:S :X (if (= "Z" (slice string (+ pos 1) 1)) 2 1)])
+
+(defn- lookup-S-6 [string pos]
+  (cond (= "H" (slice (+ pos 2) 1)) (if (re-test? #"^OO|ER|EN|UY|ED|EM$" (slice string (+ pos 3) 2))
+                                      [(if (re-test? #"^E(R|N)$" (slice string (+ pos 3) 2)) :X :SK) :SK 3]
+                                      [:X (if (and (= pos 0)
+                                                   (vowel? (slice string 3 1))
+                                                   (not= "W" (slice string (+ pos 3) 1))) :S :X) 3])
+        (re-test? #"^I|E|Y$" (slice string (+ pos 2) 1)) [:S :S 3]
+        :else [:SK :SK 3]))
+
+(defn- lookup-S [string pos lastp]
+  (cond (re-test? #"" (slice string (- pos 1) 3)) (lookup-S-1)
+        (and (= pos 0)
+             (= "SUGAR" (slice (string pos 5)))) (lookup-S-2)
+        (= "SH" (slice string pos 2)) (lookup-S-3 string pos)
+        (or (re-test? #"^SI(O|A)$" (slice string pos 3))
+            (= "SIAN" (slice string pos 4))) (lookup-S-4 string)
+        (or (and (= pos 0)
+                 (re-test? #"^M|N|L|W$" (slice string (+ pos 1) 1)))
+            (= "Z" (slice (+ pos 1)) 1)) (lookup-S-5 string pos)
+        (= "SC" (slice string pos 2)) (lookup-S-6 string pos)
+        :else [(if (and (= lastp pos) (re-test? #"^(A|O)I$" (slice string (- pos 2) 2))) nil :S)
+               :S
+               (if (re-test? #"^(A|O)I$" (slice string (+ pos 1) 1)) 2 1)]))
+
+(defn- lookup-T-1 [] [:X :X 3])
+
+(defn- lookup-T-2 [string pos]
+  (if (or (re-test? #"^(O|A)M$" (slice string (+ pos 2) 2))
+          (re-test? #"^V(A|O)N " (slice string 0 4))
+          (= "SCH" (slice string 0 3)))
+    [:T :T 2]
+    [0 :T 2]))
+
+(defn- lookup-T [string pos]
+  (cond (= "TION" (slice string pos 4)) (lookup-T-1)
+        (re-test? #"^T(IA|CH)$" (slice string pos 3)) (lookup-T-1)
+        (or (= "TH" (slice string pos 2))
+            (= "TTH" (slice string pos 3))) (lookup-T-2 string pos)
+        :else [:T :T (if (re-test? #"^T|D$" (slice string (+ pos 1) 1)) 2 1)]))
+
+(defn- lookup-V [string pos]
+  [:F :F (if (= "V" (slice string (+ pos 1) 1)) 2 1)])
+
+(defn- let-lookup-W [string pos]
+  (if (or (and (= pos 0)
+               (vowel? (slice string (+ pos 1) 1)))
+          (= "WH" (slice string pos 2)))
+    ["A" (if (vowel? (slice string (+ pos 1) 1)) "F" "A")]
+    [nil nil]))
+
+(defn- lookup-W-1 [] [:R :R 2])
+
+(defn- lookup-W-2 [pri sec]
+  [(keyword pri) (keyword (str sec "F")) 1])
+
+(defn- lookup-W-3 [pri sec]
+  [(keyword (str pri "TS")) (keyword (str sec "FX")) 4])
+
+(defn- lookup-W [string pos lastp]
+  (if (= "WR" (slice string pos 2))
+    (lookup-W-1)
+    (let [[pri sec] (let-lookup-W string pos)]
+      (cond (or (and (= lastp pos) (vowel? (slice string (- pos 1) 1)))
+                (= "SCH" (slice string 0 3))
+                (re-test? #"^EWSKI|EWSKY|OWSKI|OWSKY$" (slice string (- pos 1) 5))) (lookup-W-2 pri sec)
+            (re-test? #"^WI(C|T)Z$" (slice string pos 4)) (lookup-W-3 pri sec)
+            :else [(keyword pri) (keyword sec) 1]))))
+
+(defn- lookup-X [string pos lastp]
+  (let [current (if (re-test? #"^C|X$" (slice string (+ pos 1))) 2 1)]
+    (if (not (and (= lastp pos)
+                  (or (re-test? #"^(I|E)AU$" (slice string (- pos 3) 3))
+                      (re-test? #"^(A|O)U$" (slice string (- pos 2) 2)))))
+      [:KS :KS current]
+      [nil nil current])))
+
+(defn- lookup-Z-1 [] [:J :J 2])
+
+(defn- lookup-Z-2 [current] [:S :TS current])
+
+(defn- lookup-Z-3 [current] [:S :S current])
+
+(defn- lookup-Z [string pos]
+  (if (="H" (slice string (+ pos 1) 1))
+    (lookup-Z-1)
+    (let [current (if (= "Z" (slice string (+ pos 1) 1)) 2 1)]
+      (if (or (re-test? #"^Z(O|I|A)$" (slice string (+ pos 1) 2))
+              (and (slavo-germanic? string)
+                   (> pos 0)
+                   (not= "T" (slice string (- pos 1) 1))))
+        (lookup-Z-2 current)
+        (lookup-Z-3 current)))))
+
+;; FINAL nil nil 1
