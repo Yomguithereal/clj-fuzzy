@@ -21,7 +21,11 @@
 
 (deftest metrics-test
   (is (= 2 (m/levensthein "book" "back")))
-  (is (= 0.8 (m/dice "healed" "sealed"))))
+  (is (= 0.8 (m/dice "healed" "sealed")))
+  (is (= {:minimum 4
+          :similarity 5
+          :codex ["BYRN" "BRN"]
+          :match true} (m/mra-comparison "Byrne" "Boern"))))
 
 (deftest stemmers-test
   (is (= "abil" (s/porter "ability"))))
