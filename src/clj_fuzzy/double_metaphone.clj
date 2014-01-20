@@ -343,4 +343,13 @@
         (lookup-Z-2 current)
         (lookup-Z-3 current)))))
 
-;; FINAL nil nil 1
+(defn- lookup-vowel [pos]
+  (if (= pos 0)
+    [:A :A nil]
+    [nil nil 1]))
+
+(defn- lookup [string pos lastp length]
+  (let [char-to-lookup (slice string pos 1)]
+    (cond (vowel? char-to-lookup) (lookup-vowel pos)
+          (= "B" string) (lookup-B string pos)
+          :else [nil nil 1])))
