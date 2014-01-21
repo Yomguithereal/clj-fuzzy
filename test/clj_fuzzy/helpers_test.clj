@@ -18,7 +18,8 @@
   (is (= "b" (slice "abcd" 1 1)))
   (is (= "bcd" (slice "abcd" 1 3)))
   (is (= "abc" (slice "abcd" 0 3)))
-  (is (= "bc" (slice "abcd" 1 2))))
+  (is (= "bc" (slice "abcd" 1 2)))
+  (is (= "cd" (slice "abcd" -2 2))))
 
 (deftest chop-test
   (is (= "hell" (chop "hello")))

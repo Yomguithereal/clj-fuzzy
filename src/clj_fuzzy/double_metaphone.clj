@@ -351,5 +351,6 @@
 (defn- lookup [string pos lastp length]
   (let [char-to-lookup (slice string pos 1)]
     (cond (vowel? char-to-lookup) (lookup-vowel pos)
-          (= "B" string) (lookup-B string pos)
+          (= "B" char-to-lookup) (lookup-B string pos)
+          (= "Ç" char-to-lookup) (lookup-C-cedilla)
           :else [nil nil 1])))
