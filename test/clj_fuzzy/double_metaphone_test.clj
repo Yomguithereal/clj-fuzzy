@@ -13,7 +13,7 @@
 (deftest process-test
   (is (= ["SM0" "XMT"] (process "Smith")))
   (is (= ["XMT" "SMT"] (process "Schmidt")))
-  (is (= ["TKXN" "TKXN"] (process "dictionnary")))
+  (is (= ["TKXN" "TKXN"] (process "dictionary")))
   (is (= ["ANTL" "ANTL"] (process "entelechy")))
   (is (= ["NK" "NK"] (process "knock")))
   (is (= ["RNKL" "RNKL"] (process "wrangler")))

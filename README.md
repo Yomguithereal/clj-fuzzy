@@ -12,6 +12,7 @@ clj-fuzzy is a Clojure library providing a collection of famous algorithms deali
 
 ### Phonetics
 * [Metaphone](http://en.wikipedia.org/wiki/Metaphone)
+* [Double Metaphone](http://en.wikipedia.org/wiki/Metaphone#Double_Metaphone)
 * [Soundex](http://en.wikipedia.org/wiki/Soundex)
 * [NYSIIS](http://en.wikipedia.org/wiki/New_York_State_Identification_and_Intelligence_System)
 * [Caverphone](http://en.wikipedia.org/wiki/Caverphone)
@@ -48,6 +49,7 @@ clj-fuzzy ships with three API namespaces: `clj-fuzzy.metrics`, `clj-fuzzy.stemm
 
 **clj-fuzzy.phonetics**
 * [Metaphone](#metaphone)
+* [Double Metaphone](#double-metaphone)
 * [Soundex](#soundex)
 * [NYSIIS](#nysiis)
 * [Caverphone](#caverphone)
@@ -106,6 +108,19 @@ In order to be the simplest possible, the following examples `:use` the clj-fuzz
 
 (metaphone "discrimination")
 "TSKRMNXN"
+```
+
+### Double Metaphone
+```clj
+(ns my.clojure-namespace
+  (:use clj-fuzzy.phonetics))
+
+;; Compute the double metaphone of a word
+(double-metaphone "Smith")
+["SM0", "XMT"]
+
+(double-metaphone "Schmidt")
+["XMT" "SMT"]
 ```
 
 ### Soundex
