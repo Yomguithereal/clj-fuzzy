@@ -7,11 +7,11 @@
 ;;   Version: 0.1
 ;;
 (ns clj-fuzzy.double-metaphone
+  (:require clojure.string)
   (:use [clj-fuzzy.helpers :only [re-test?
                                   slice
                                   in?]]))
 
-;; TODO: check how ruby's str[-1] works
 ;; Utilities
 (defn- slavo-germanic? [string] (re-test? #"W|K|CZ|WITZ" string))
 
@@ -19,8 +19,7 @@
 
 (def ^:private not-re-test? (complement re-test?))
 
-
-;; Steps
+;; Lookup functions
 (defn- lookup-vowel [string pos] (if (= 0 pos) [:A :A 1] [nil nil 1]))
 
 (defn- lookup-B [string pos]
@@ -51,7 +50,7 @@
 (defn- lookup-C-5 [] [:X :X :3])
 
 (defn- lookup-C-6 [string pos]
-  (if (and (re-test? #"^I|E|H$" (slice string (+ pos 2) 1) (not= "HU" (slice string (+ pos 2) 2))))
+  (if (and (re-test? #"^I|E|H$" (slice string (+ pos 2) 1)) (not= "HU" (slice string (+ pos 2) 2)))
     (if (and (= pos 1) (= "A" (slice string (- pos 1) 1)))
       [:KS :KS 3]
       [:X :X 3])
@@ -78,12 +77,12 @@
         (and (= pos 0) (= "CAESAR" (slice string pos 6))) (lookup-C-2)
         (= "CHIA" (slice string pos 4)) (lookup-C-1)
         (= "CH" (slice string pos 2)) (lookup-C-3 string pos)
-        (and (= "CZ" (slice string pos 2)) (not= "WICZ" (slice string (- pos 2)) 4)) (lookup-C-4)
+        (and (= "CZ" (slice string pos 2)) (not= "WICZ" (slice string (- pos 2) 4))) (lookup-C-4)
         (= "CIA" (slice string (+ pos 1) 3)) (lookup-C-5)
         (and (= "CC" (slice string pos 2))
              (not (or (= pos 1) (= "M" (slice string 0 1))))) (lookup-C-6 string pos)
         (re-test? #"^C(K|G|Q)$" (slice string pos 2)) (lookup-C-7)
-        (re-test? #"^C(I|E|Y)$" (slice string pos 2)) (lookup-C-8)
+        (re-test? #"^C(I|E|Y)$" (slice string pos 2)) (lookup-C-8 string pos)
         :else (lookup-C-9 string pos)))
 
 (defn- lookup-D [string pos]
@@ -109,7 +108,7 @@
         (or (and (> pos 1) (re-test? #"^B|H|D$" (slice string (- pos 2) 1)))
             (and (> pos 2) (re-test? #"^B|H|D$" (slice string (- pos 3) 1)))
             (and (> pos 3) (re-test? #"^B|H$" (slice string (- pos 4) 1)))) [nil nil 2]
-        :else (lookup-G-1-bis)))
+        :else (lookup-G-1-bis string pos)))
 
 (defn- lookup-G-2 [string pos]
   (if (and (= pos 1)
@@ -251,7 +250,7 @@
   [:S :X (if (= "Z" (slice string (+ pos 1) 1)) 2 1)])
 
 (defn- lookup-S-6 [string pos]
-  (cond (= "H" (slice (+ pos 2) 1)) (if (re-test? #"^OO|ER|EN|UY|ED|EM$" (slice string (+ pos 3) 2))
+  (cond (= "H" (slice string (+ pos 2) 1)) (if (re-test? #"^OO|ER|EN|UY|ED|EM$" (slice string (+ pos 3) 2))
                                       [(if (re-test? #"^E(R|N)$" (slice string (+ pos 3) 2)) :X :SK) :SK 3]
                                       [:X (if (and (= pos 0)
                                                    (vowel? (slice string 3 1))
@@ -262,13 +261,13 @@
 (defn- lookup-S [string pos lastp]
   (cond (re-test? #"" (slice string (- pos 1) 3)) (lookup-S-1)
         (and (= pos 0)
-             (= "SUGAR" (slice (string pos 5)))) (lookup-S-2)
+             (= "SUGAR" (slice string pos 5))) (lookup-S-2)
         (= "SH" (slice string pos 2)) (lookup-S-3 string pos)
         (or (re-test? #"^SI(O|A)$" (slice string pos 3))
             (= "SIAN" (slice string pos 4))) (lookup-S-4 string)
         (or (and (= pos 0)
                  (re-test? #"^M|N|L|W$" (slice string (+ pos 1) 1)))
-            (= "Z" (slice (+ pos 1)) 1)) (lookup-S-5 string pos)
+            (= "Z" (slice string (+ pos 1) 1))) (lookup-S-5 string pos)
         (= "SC" (slice string pos 2)) (lookup-S-6 string pos)
         :else [(if (and (= lastp pos) (re-test? #"^(A|O)I$" (slice string (- pos 2) 2))) nil :S)
                :S
@@ -319,7 +318,7 @@
             :else [(keyword pri) (keyword sec) 1]))))
 
 (defn- lookup-X [string pos lastp]
-  (let [current (if (re-test? #"^C|X$" (slice string (+ pos 1))) 2 1)]
+  (let [current (if (re-test? #"^C|X$" (slice string (+ pos 1) 1)) 2 1)]
     (if (not (and (= lastp pos)
                   (or (re-test? #"^(I|E)AU$" (slice string (- pos 3) 3))
                       (re-test? #"^(A|O)U$" (slice string (- pos 2) 2)))))
@@ -348,9 +347,94 @@
     [:A :A nil]
     [nil nil 1]))
 
-(defn- lookup [string pos lastp length]
+(defn- lookup [string pos length lastp]
   (let [char-to-lookup (slice string pos 1)]
     (cond (vowel? char-to-lookup) (lookup-vowel pos)
           (= "B" char-to-lookup) (lookup-B string pos)
           (= "Ç" char-to-lookup) (lookup-C-cedilla)
+          (= "C" char-to-lookup) (lookup-C string pos)
+          (= "D" char-to-lookup) (lookup-D string pos)
+          (= "F" char-to-lookup) (lookup-F string pos)
+          (= "G" char-to-lookup) (lookup-G string pos)
+          (= "H" char-to-lookup) (lookup-H string pos)
+          (= "J" char-to-lookup) (lookup-J string pos lastp)
+          (= "K" char-to-lookup) (lookup-K string pos)
+          (= "L" char-to-lookup) (lookup-L string pos length lastp)
+          (= "M" char-to-lookup) (lookup-M string pos lastp)
+          (= "N" char-to-lookup) (lookup-N string pos)
+          (= "Ñ" char-to-lookup) (lookup-NY string pos)
+          (= "P" char-to-lookup) (lookup-P string pos)
+          (= "Q" char-to-lookup) (lookup-Q string pos)
+          (= "R" char-to-lookup) (lookup-R string pos lastp)
+          (= "S" char-to-lookup) (lookup-S string pos lastp)
+          (= "T" char-to-lookup) (lookup-T string pos)
+          (= "V" char-to-lookup) (lookup-V string pos)
+          (= "W" char-to-lookup) (lookup-W string pos lastp)
+          (= "X" char-to-lookup) (lookup-X string pos lastp)
+          (= "Z" char-to-lookup) (lookup-Z string pos)
           :else [nil nil 1])))
+
+;; Main functions
+(defn- prep-string
+  "Prepare the [string] before its passage through the Double Metaphone
+  Algorithm."
+  [string]
+  (str (clojure.string/upper-case string) "     "))
+
+(defn process
+  "Applying the Double Metaphone algorithm to a single [string]."
+  [string]
+  (let [pstring (prep-string string)
+        length (count string)
+        lastp (dec length)]))
+
+;; Testing
+(let [pstring "ASHCROFT     "
+      current 0
+      length (count pstring)
+      lastp (dec length)]
+    (loop [pos current
+           primary []
+           secondary []]
+    (if (or (< (count primary) 4)
+            (< (count secondary) 4)
+            (> pos length))
+        (let [[newp news offset] (lookup pstring pos length lastp)]
+          (recur (+ pos offset)
+                 (conj primary newp)
+                 (conj secondary news)))
+      [primary secondary])))
+
+(loop [counter 0
+       array []]
+  (if (> 4 counter)
+    (recur (inc counter) (conj array 1))
+    array))
+
+(comment "def double_metaphone(str)
+    primary, secondary, current = [], [], 0
+    original, length, last = str     .upcase, str.length, str.length - 1
+
+    ;; Preprocess
+    if /^GN|KN|PN|WR|PS$/ =~ original[0, 2]
+      current += 1
+    end
+    if 'X' == original[0, 1]
+      primary << :S
+      secondary << :S
+      current += 1
+    end
+
+
+    while primary.length < 4 || secondary.length < 4
+      break if current > str.length
+      a, b, c = double_metaphone_lookup(original, current, length, last)
+      primary << a if a
+      secondary << b if b
+      current += c if c
+    end
+
+    ;; Post process
+    primary, secondary = primary.join()[0, 4], secondary.join()[0, 4]
+    return primary, (primary == secondary ? nil : secondary)
+  end")
