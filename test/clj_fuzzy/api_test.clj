@@ -17,7 +17,8 @@
   (is (= "A261" (p/soundex "Ashcroft")))
   (is (= "ANDARSAN" (p/nysiis "Anderson")))
   (is (= "ANRKSN1111" (p/caverphone "Henricsson")))
-  (is (= "CTHRN" (p/mra-codex "Catherine"))))
+  (is (= "CTHRN" (p/mra-codex "Catherine")))
+  (is (= ["SM0" "XMT"] (p/double-metaphone "Smith"))))
 
 (deftest metrics-test
   (is (= 2 (m/levensthein "book" "back")))
