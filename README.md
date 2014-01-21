@@ -22,7 +22,7 @@ clj-fuzzy is a Clojure library providing a collection of famous algorithms deali
 To install the lastest version from [clojars](https://clojars.org/), just add the following vector to the `:dependencies` section of your `project.clj` file.
 
 ```clj
-[clj-fuzzy "0.1.3"]
+[clj-fuzzy "0.1.4"]
 ```
 
 Then run `lein deps` to process your dependencies.
