@@ -27,7 +27,7 @@
 
 (defn- !>3 [integer] (if (> integer 3) 3 integer))
 
-(defn drop-nil [sequence] (filter (complement nil?) sequence))
+(defn drop-nil [sequence] (remove nil? sequence))
 
 (defn- get-codex-letters [pword]
   (let [last-3 (!>3 (- (count pword) 3))]
@@ -87,7 +87,7 @@
   [word-1 word-2]
   (let [codex-1 (mra-codex word-1)
         codex-2 (mra-codex word-2)
-        difference (. Math abs
+        difference (Math/abs
                       (- (count codex-1) (count codex-2)))]
     (when (< difference 3)
       (let [minimum (minimum-rating codex-1 codex-2)

@@ -12,7 +12,7 @@
 (defn slice
   "Slice a [string] from [start] and up to [length]."
   [string start length]
-  (let [offset (if (< start 0) (+ (count string) start) start)]
+  (let [offset (if (neg? start) (+ (count string) start) start)]
     (apply str (take length (drop offset string)))))
 
 (defn chop

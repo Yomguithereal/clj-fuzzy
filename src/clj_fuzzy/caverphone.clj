@@ -72,8 +72,7 @@
 (defn- prep-word
   "Prep a [word] for its passage through the Caverphone algorithm."
   [word]
-  (-> (clojure.string/lower-case word)
-      (clean-non-alphabetical)))
+  (clean-non-alphabetical (clojure.string/lower-case word)))
 
 (defn- pad [word] (subs (str word (apply str (repeat 10 "1"))) 0 10))
 
