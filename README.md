@@ -117,7 +117,7 @@ In order to be the simplest possible, the following examples `:use` the clj-fuzz
 
 ;; Compute the double metaphone of a word
 (double-metaphone "Smith")
-["SM0", "XMT"]
+["SM0" "XMT"]
 
 (double-metaphone "Schmidt")
 ["XMT" "SMT"]
