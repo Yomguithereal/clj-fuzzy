@@ -18,7 +18,8 @@
   (is (= "ANDARSAN" (p/nysiis "Anderson")))
   (is (= "ANRKSN1111" (p/caverphone "Henricsson")))
   (is (= "CTHRN" (p/mra-codex "Catherine")))
-  (is (= ["SM0" "XMT"] (p/double-metaphone "Smith"))))
+  (is (= ["SM0" "XMT"] (p/double-metaphone "Smith")))
+  (is (= "65752682" (p/cologne "Müller-Lüdenscheidt"))))
 
 (deftest metrics-test
   (is (= 2 (m/levensthein "book" "back")))

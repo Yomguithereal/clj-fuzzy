@@ -12,7 +12,8 @@
             [clj-fuzzy.soundex :only [process]]
             [clj-fuzzy.nysiis :only [original]]
             [clj-fuzzy.caverphone :only [process]]
-            [clj-fuzzy.match-rating :only [mra-codex]]))
+            [clj-fuzzy.match-rating :only [mra-codex]]
+            [clj-fuzzy.cologne :only [process]]))
 
 (def metaphone clj-fuzzy.metaphone/process)
 (def double-metaphone clj-fuzzy.double-metaphone/process)
@@ -20,3 +21,4 @@
 (def nysiis clj-fuzzy.nysiis/original)
 (def caverphone clj-fuzzy.caverphone/process)
 (def mra-codex clj-fuzzy.match-rating/mra-codex)
+(def cologne clj-fuzzy.cologne/process)
