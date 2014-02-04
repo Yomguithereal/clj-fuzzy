@@ -10,7 +10,7 @@
   (:require [clojure.test :refer :all]
             [clj-fuzzy.hamming :refer :all]))
 
-(deftest hamming-test
+(deftest distance-test
   (is (= nil (distance "abc" "abcd")))
   (is (= 2 (distance "1011101" "1001001")))
   (is (= 3 (distance "2143896" "2233796")))
