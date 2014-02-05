@@ -1,4 +1,4 @@
-(defproject clj-fuzzy "0.1.4"
+(defproject clj-fuzzy "0.1.5"
   :description "A handy collection of algorithms dealing with fuzzy strings and phonetics."
   :url "https://github.com/Yomguithereal/clj-fuzzy"
   :license {:name "MIT"
