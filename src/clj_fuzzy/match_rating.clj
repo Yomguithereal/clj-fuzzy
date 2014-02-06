@@ -25,12 +25,10 @@
   (-> (clojure.string/upper-case word)
       (clean-non-alphabetical)))
 
-(defn- !>3 [integer] (if (> integer 3) 3 integer))
-
 (defn drop-nil [sequence] (remove nil? sequence))
 
 (defn- get-codex-letters [pword]
-  (let [last-3 (!>3 (- (count pword) 3))]
+  (let [last-3 (min 3 (- (count pword) 3))]
     (apply str (concat (take 3 pword)
                        (take-last last-3 pword)))))
 
