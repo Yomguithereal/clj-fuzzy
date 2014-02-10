@@ -8,6 +8,7 @@ clj-fuzzy is a Clojure library providing a collection of famous algorithms deali
 * [Levensthein distance](http://en.wikipedia.org/wiki/Levenshtein_distance)
 * [Hamming distance](http://en.wikipedia.org/wiki/Hamming_distance)
 * [Jaccard distance](http://en.wikipedia.org/wiki/Jaccard_index)
+* [Jaro-Winkler distance](http://en.wikipedia.org/wiki/Jaro%E2%80%93Winkler_distance)
 
 ### Stemmers
 * [Porter stemming](http://en.wikipedia.org/wiki/Stemming)
@@ -25,7 +26,7 @@ clj-fuzzy is a Clojure library providing a collection of famous algorithms deali
 To install the lastest version from [clojars](https://clojars.org/), just add the following vector to the `:dependencies` section of your `project.clj` file.
 
 ```clj
-[clj-fuzzy "0.1.5"]
+[clj-fuzzy "0.1.6"]
 ```
 
 Then run `lein deps` to process your dependencies.
@@ -48,6 +49,7 @@ clj-fuzzy ships with three API namespaces: `clj-fuzzy.metrics`, `clj-fuzzy.stemm
 * [Levensthein distance](#levensthein-distance)
 * [Hamming distance](#hamming-distance)
 * [Jaccard distance](#jaccard-distance)
+* [Jaro-Winkler distance](#jaro-winkler-distance)
 
 **clj-fuzzy.stemmers**
 * [Porter stemming](#porter-stemming)
@@ -82,7 +84,7 @@ In order to be the simplest possible, the following examples `:use` the clj-fuzz
 (ns my.clojure-namespace
   (:use clj-fuzzy.metrics))
 
-;; Compute the levensthein distance between two words
+;; Compute the Levensthein distance between two words
 (levensthein "book" "back")
 2
 
@@ -95,7 +97,7 @@ In order to be the simplest possible, the following examples `:use` the clj-fuzz
 (ns my.clojure-namespace
   (:use clj-fuzzy.metrics))
 
-;; Compute the hamming distance between two words
+;; Compute the Hamming distance between two words
 (hamming "ramer" "cases")
 3
 
@@ -108,13 +110,27 @@ In order to be the simplest possible, the following examples `:use` the clj-fuzz
 (ns my.clojure-namespace
   (:use clj-fuzzy.metrics))
 
-;; Compute the jaccard distance between two words
+;; Compute the Jaccard distance between two words
 ;; 0 meaning two identical strings and 1 two totally different ones
 (jaccard "abc" "xyz")
 1
 
 (jaccard "night" "nacht")
 4/7
+```
+
+### Jaro-Winkler distance
+```clj
+(ns my.clojure-namespace
+  (:use clj-fuzzy.metrics))
+
+;; Compute the Jaro distance between two words
+(jaro "Dwayne" "Duane")
+0.8222222222222223
+
+;; Compute the Jaro-Winkler distance between two words
+(jaro-winkler "Dwayne" "Duane")
+0.8400000000000001
 ```
 
 ### Porter stemming
