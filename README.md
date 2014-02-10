@@ -9,6 +9,7 @@ clj-fuzzy is a Clojure library providing a collection of famous algorithms deali
 * [Hamming distance](http://en.wikipedia.org/wiki/Hamming_distance)
 * [Jaccard distance](http://en.wikipedia.org/wiki/Jaccard_index)
 * [Jaro-Winkler distance](http://en.wikipedia.org/wiki/Jaro%E2%80%93Winkler_distance)
+* [MRA comparison](http://en.wikipedia.org/wiki/Match_rating_approach)
 
 ### Stemmers
 * [Porter stemming](http://en.wikipedia.org/wiki/Stemming)
@@ -20,7 +21,7 @@ clj-fuzzy is a Clojure library providing a collection of famous algorithms deali
 * [NYSIIS](http://en.wikipedia.org/wiki/New_York_State_Identification_and_Intelligence_System)
 * [Caverphone](http://en.wikipedia.org/wiki/Caverphone)
 * [Cologne Phonetic](http://de.wikipedia.org/wiki/K%C3%B6lner_Phonetik)
-* [Match Rating Approach Codex](http://en.wikipedia.org/wiki/Match_rating_approach)
+* [MRA codex](http://en.wikipedia.org/wiki/Match_rating_approach)
 
 ## Installation
 To install the lastest version from [clojars](https://clojars.org/), just add the following vector to the `:dependencies` section of your `project.clj` file.
@@ -50,6 +51,7 @@ clj-fuzzy ships with three API namespaces: `clj-fuzzy.metrics`, `clj-fuzzy.stemm
 * [Hamming distance](#hamming-distance)
 * [Jaccard distance](#jaccard-distance)
 * [Jaro-Winkler distance](#jaro-winkler-distance)
+* [MRA Comparison](#mra-comparison)
 
 **clj-fuzzy.stemmers**
 * [Porter stemming](#porter-stemming)
@@ -61,7 +63,7 @@ clj-fuzzy ships with three API namespaces: `clj-fuzzy.metrics`, `clj-fuzzy.stemm
 * [NYSIIS](#nysiis)
 * [Caverphone](#caverphone)
 * [Cologne Phonetic](#cologne-phonetic)
-* [MRA Codex](#mra-codex)
+* [MRA codex](#mra-codex)
 
 In order to be the simplest possible, the following examples `:use` the clj-fuzzy namespaces. But you should really rely on a cleaner `:require`.
 
@@ -131,6 +133,19 @@ In order to be the simplest possible, the following examples `:use` the clj-fuzz
 ;; Compute the Jaro-Winkler distance between two words
 (jaro-winkler "Dwayne" "Duane")
 0.8400000000000001
+```
+
+### MRA Comparison
+```clj
+(ns my.clojure-namespace
+  (:use clj-fuzzy.metrics))
+
+;; Compare two string using the Match Rating Approach
+(mra-comparison "Byrne" "Boern")
+{:minimum 4
+ :similarity 5
+ :codex ["BYRN" "BRN"]
+ :match true}
 ```
 
 ### Porter stemming
