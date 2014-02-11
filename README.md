@@ -1,5 +1,5 @@
 # clj-fuzzy
-clj-fuzzy is a Clojure library providing a collection of famous algorithms dealing with fuzzy strings and phonetics.
+clj-fuzzy is a Clojure / ClojureScript library providing a collection of famous algorithms dealing with fuzzy strings and phonetics.
 
 ## Available algorithms
 
@@ -24,6 +24,8 @@ clj-fuzzy is a Clojure library providing a collection of famous algorithms deali
 * [MRA codex](http://en.wikipedia.org/wiki/Match_rating_approach)
 
 ## Installation
+
+### Clojure / ClojureScript
 To install the lastest version from [clojars](https://clojars.org/), just add the following vector to the `:dependencies` section of your `project.clj` file.
 
 ```clj
@@ -41,6 +43,18 @@ lein install
 ```
 
 Then include the same vector within your `project.clj` and you should be good to go.
+
+**N.B.**: To build the JavaScript version if needed, just run the following command.
+
+```
+lein cljsbuild once
+```
+
+### Client-side JavaScript
+To use the clj-fuzzy library client-side, juste include the minified JavaScript build of the library available [here](https://raw.github.com/Yomguithereal/clj-fuzzy/master/clj-fuzzy.min.js).
+
+### Node.js
+The node version of the library - I mean by that a version that could be *required* by node - doesn't exist yet but it should be pretty straigtforward to make your own with the following [library](https://github.com/michaelsbradleyjr/node-clojurescript).
 
 ## Usage
 clj-fuzzy ships with three API namespaces: `clj-fuzzy.metrics`, `clj-fuzzy.stemmers` and finally `clj-fuzzy.phonetics`. Just require or use those and use the relevant functions to run the algorithms.
@@ -65,8 +79,9 @@ clj-fuzzy ships with three API namespaces: `clj-fuzzy.metrics`, `clj-fuzzy.stemm
 * [Cologne Phonetic](#cologne-phonetic)
 * [MRA codex](#mra-codex)
 
-In order to be the simplest possible, the following examples `:use` the clj-fuzzy namespaces. But you should really rely on a cleaner `:require`.
+[**JavaScript counterparts**](#javascript-counterparts)
 
+In order to be the simplest possible, the following examples `:use` the clj-fuzzy namespaces. But you should really rely on a cleaner `:require`.
 
 ### Dice coefficient
 ```clj
@@ -250,6 +265,24 @@ In order to be the simplest possible, the following examples `:use` the clj-fuzz
 
 (mra-codex "Smith")
 "SMTH"
+```
+
+### JavaScript Counterparts
+```js
+// When including clj_fuzzy.min.js, a global object 'clj_fuzzy' is created
+// It encapsulates quite normally the libraries' namespaces
+
+// Metrics Example
+clj_fuzzy.metrics.leventsthein('book', 'back')
+> 2
+
+// Phonetics Example
+clj_fuzzy.phonetics.metaphone('Bajador')
+> 'BJTR'
+
+// Stemmer Example
+clj_fuzzy.stemmers.porter('ability')
+> 'abil'
 ```
 
 ## Contribution
