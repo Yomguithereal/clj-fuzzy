@@ -7,12 +7,12 @@
 ;;   Version: 0.1
 ;;
 (ns clj-fuzzy.metrics
-    (:require clj-fuzzy.levensthein
-              clj-fuzzy.dice
-              clj-fuzzy.match-rating
-              clj-fuzzy.jaccard
-              clj-fuzzy.hamming
-              clj-fuzzy.jaro-winkler))
+  (:require clj-fuzzy.levensthein
+            clj-fuzzy.dice
+            clj-fuzzy.match-rating
+            clj-fuzzy.jaccard
+            clj-fuzzy.hamming
+            clj-fuzzy.jaro-winkler))
 
 (def ^:export levensthein clj-fuzzy.levensthein/distance)
 (def ^:export dice clj-fuzzy.dice/coefficient)
