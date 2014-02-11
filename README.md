@@ -269,7 +269,7 @@ In order to be the simplest possible, the following examples `:use` the clj-fuzz
 
 ### JavaScript Counterparts
 ```js
-// When including clj_fuzzy.min.js, a global object 'clj_fuzzy' is created
+// When including clj-fuzzy.min.js, a global object 'clj_fuzzy' is created
 // It encapsulates quite normally the libraries' namespaces
 
 // Metrics Example
