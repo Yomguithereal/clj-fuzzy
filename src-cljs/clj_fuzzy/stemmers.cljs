@@ -9,4 +9,4 @@
 (ns clj-fuzzy.stemmers
   (:require clj-fuzzy.porter))
 
-(def porter clj-fuzzy.porter/stem)
+(def ^:export porter clj-fuzzy.porter/stem)

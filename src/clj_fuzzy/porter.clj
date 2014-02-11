@@ -6,7 +6,7 @@
 ;;   Author: PLIQUE Guillaume (Yomguithereal)
 ;;   version: 0.1
 ;;
-(ns clj-fuzzy.porter-stemming
+(ns clj-fuzzy.porter
   (:require clojure.string)
   (:use [clj-fuzzy.helpers :only [re-test? chop]]))
 
@@ -62,8 +62,8 @@
 ;;---------
 (def ^:private c "[^aeiou]")
 (def ^:private v "[aeiouy]")
-(def ^:private cc (str c "(?>" c "*)"))
-(def ^:private vv (str v "(?>" v "*)"))
+(def ^:private cc (str c c "*"))
+(def ^:private vv (str v v "*"))
 
 (defn- re-test-fn [pattern-string]
   (fn [string] (re-test? (re-pattern pattern-string) string)))
@@ -111,7 +111,7 @@
       :else word)))
 
 (defn- step-1b-1 [word]
-  (if (mgr0? (subs word 0 (- (count word)) 3))
+  (if (mgr0? (subs word 0 (- (count word) 3)))
     (chop word)
     word))
 

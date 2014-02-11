@@ -19,6 +19,6 @@
     (empty? sequence2) (count sequence1)
     :else (min
             (+ (if (= (first sequence1) (first sequence2)) 0 1)
-                (#'distance (rest sequence1) (rest sequence2)))
-            (inc (#'distance (rest sequence1) sequence2))
-            (inc (#'distance sequence1 (rest sequence2))))))
+                (distance (rest sequence1) (rest sequence2)))
+            (inc (distance (rest sequence1) sequence2))
+            (inc (distance sequence1 (rest sequence2))))))

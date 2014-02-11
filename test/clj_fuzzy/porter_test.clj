@@ -6,9 +6,9 @@
 ;;   Author: PLIQUE Guillaume (Yomguithereal)
 ;;   Version: 0.1
 ;;
-(ns clj-fuzzy.porter-stemming-test
+(ns clj-fuzzy.porter-test
   (:require [clojure.test :refer :all]
-            [clj-fuzzy.porter-stemming :refer :all]))
+            [clj-fuzzy.porter :refer :all]))
 
 (deftest stem-test
   (is (= "catastroph" (stem "catastrophe")))

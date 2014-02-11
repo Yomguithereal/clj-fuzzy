@@ -15,10 +15,13 @@
             clj-fuzzy.match-rating
             clj-fuzzy.cologne))
 
-(def metaphone clj-fuzzy.metaphone/process)
-(def double-metaphone clj-fuzzy.double-metaphone/process)
-(def soundex clj-fuzzy.soundex/process)
-(def nysiis clj-fuzzy.nysiis/original)
-(def caverphone clj-fuzzy.caverphone/process)
-(def mra-codex clj-fuzzy.match-rating/mra-codex)
-(def cologne clj-fuzzy.cologne/process)
+(def ^:export metaphone clj-fuzzy.metaphone/process)
+(def ^:export soundex clj-fuzzy.soundex/process)
+(def ^:export nysiis clj-fuzzy.nysiis/original)
+(def ^:export caverphone clj-fuzzy.caverphone/process)
+(def ^:export mra-codex clj-fuzzy.match-rating/mra-codex)
+(def ^:export cologne clj-fuzzy.cologne/process)
+
+;; JavaScript optimizations
+(defn ^:export double-metaphone [word]
+  (clj->js (clj-fuzzy.double-metaphone/process word)))

@@ -14,10 +14,13 @@
               clj-fuzzy.hamming
               clj-fuzzy.jaro-winkler))
 
-(def levensthein clj-fuzzy.levensthein/distance)
-(def dice clj-fuzzy.dice/coefficient)
-(def mra-comparison clj-fuzzy.match-rating/mra-comparison)
-(def jaccard clj-fuzzy.jaccard/distance)
-(def hamming clj-fuzzy.hamming/distance)
-(def jaro clj-fuzzy.jaro-winkler/jaro)
-(def jaro-winkler clj-fuzzy.jaro-winkler/jaro-winkler)
+(def ^:export levensthein clj-fuzzy.levensthein/distance)
+(def ^:export dice clj-fuzzy.dice/coefficient)
+(def ^:export jaccard clj-fuzzy.jaccard/distance)
+(def ^:export hamming clj-fuzzy.hamming/distance)
+(def ^:export jaro clj-fuzzy.jaro-winkler/jaro)
+(def ^:export jaro-winkler clj-fuzzy.jaro-winkler/jaro-winkler)
+
+;; JavaScript Optimizations
+(defn ^:export mra-comparison [string1 string2]
+  (clj->js (clj-fuzzy.match-rating/mra-comparison string1 string2)))
