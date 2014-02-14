@@ -44,7 +44,7 @@ lein install
 
 Then include the same vector within your `project.clj` and you should be good to go.
 
-**N.B.**: To build the JavaScript version if needed, just run the following command.
+**N.B.** To build the JavaScript version if needed, just run the following command.
 
 ```
 lein cljsbuild once
