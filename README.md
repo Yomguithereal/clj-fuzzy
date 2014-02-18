@@ -273,15 +273,18 @@ In order to be the simplest possible, the following examples `:use` the clj-fuzz
 // It encapsulates quite normally the libraries' namespaces
 
 // Metrics Example
-clj_fuzzy.metrics.leventsthein('book', 'back')
+clj_fuzzy.metrics.levensthein('book', 'back');
 > 2
 
+clj_fuzzy.metrics.jaro_winkler('Dwayne', 'Duane');
+> 8400000000000001
+
 // Phonetics Example
-clj_fuzzy.phonetics.metaphone('Bajador')
+clj_fuzzy.phonetics.metaphone('Bajador');
 > 'BJTR'
 
 // Stemmer Example
-clj_fuzzy.stemmers.porter('ability')
+clj_fuzzy.stemmers.porter('ability');
 > 'abil'
 ```
 
