@@ -51,7 +51,7 @@ lein cljsbuild once
 ```
 
 ### Client-side JavaScript
-To use the clj-fuzzy library client-side, just include the minified JavaScript build of the library available [here](https://raw.github.com/Yomguithereal/clj-fuzzy/master/clj-fuzzy.min.js).
+To use the clj-fuzzy library client-side, just include the minified JavaScript build of the library available [here](https://raw.github.com/Yomguithereal/clj-fuzzy/master/node/index.js).
 
 ### Node.js
 The node version of the library - I mean by that a version that could be *required* by node - doesn't exist yet but it should be pretty straigtforward to make your own with the following [library](https://github.com/michaelsbradleyjr/node-clojurescript).

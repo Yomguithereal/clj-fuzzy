@@ -1,3 +1,4 @@
+/* clj-fuzzy - v0.1.6 - Author: Yomguithereal  - Repository: https://github.com/Yomguithereal/clj-fuzzy */
 ;(function(){
 var f,aa=this;
 function n(a){var b=typeof a;if("object"==b)if(a){if(a instanceof Array)return"array";if(a instanceof Object)return b;var c=Object.prototype.toString.call(a);if("[object Window]"==c)return"object";if("[object Array]"==c||"number"==typeof a.length&&"undefined"!=typeof a.splice&&"undefined"!=typeof a.propertyIsEnumerable&&!a.propertyIsEnumerable("splice"))return"array";if("[object Function]"==c||"undefined"!=typeof a.call&&"undefined"!=typeof a.propertyIsEnumerable&&!a.propertyIsEnumerable("call"))return"function"}else return"null";else if("function"==
@@ -234,3 +235,6 @@ da("clj_fuzzy.metrics.hamming",function(a,b){var c=K(a),d=K(b);return B.a(c,d)?K
 da("clj_fuzzy.metrics.mra_comparison",function(a,b){var c=Ae,d;d=Vf(a);var e=Vf(b);if(3>(Math.abs.d?Math.abs.d(K(d)-K(e)):Math.abs.call(null,K(d)-K(e)))){var g;g=K(d)+K(e);g=4>=g?5:4<g&&7>=g?4:7<g&&11>=g?3:r?2:null;var k,l;k=K(d);l=K(e);l=k>l?new S(null,2,5,T,[d,e],null):new S(null,2,5,T,[e,d],null);k=L.b(l,0,null);l=L.b(l,1,null);l=Uf(Tf(k,l));k=Sf(Q.a(D,l));l=Sf(Q.a(Ib,l));k=Tf(oc(k)?hb(k):dc.b(Jb,F,k),oc(l)?hb(l):dc.b(Jb,F,l));k=6-K(Sf(Uf(k)));d=new ka(null,4,[Je,g,Ie,k,Ee,new S(null,2,5,T,[d,
 e],null),Ge,k>=g],null)}else d=null;return c(d)});
 })();
+
+if (typeof exports !== 'undefined' && this.exports !== exports)
+  module.exports = clj_fuzzy;

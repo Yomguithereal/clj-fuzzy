@@ -9,3 +9,5 @@ pom.xml.asc
 /.lein-*
 /.nrepl-port
 TODO.md
+node/node_modules
+node/clj-fuzzy.min.js
