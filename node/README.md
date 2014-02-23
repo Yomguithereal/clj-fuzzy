@@ -40,8 +40,10 @@ npm installl clj-fuzzy
 Else, if you want to include the library in your node.js project, add the following dependency in your package.json file.
 
 ```json
-"dependencies": {
-  "clj-fuzzy": "0.1.6",
+{
+  "dependencies": {
+    "clj-fuzzy": "0.1.6",
+  }
 }
 ```
 
@@ -68,7 +70,7 @@ clj-fuzzy ships with three API namespaces: `clj_fuzzy.metrics`, `clj_fuzzy.stemm
 * [Cologne Phonetic](#cologne-phonetic)
 * [MRA codex](#mra-codex)
 
-[**Clojure counterparts**](https://github.com/Yomguithereal/clj-fuzzy)
+[**Clojure counterparts**](https://github.com/Yomguithereal/clj-fuzzy#usage)
 
 **N.B.** For any of the following examples, just drop the require line to make it work client-side, as the `clj_fuzzy` object is exported to `window`.
 

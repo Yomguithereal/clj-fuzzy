@@ -51,7 +51,9 @@ Then include the same vector within your `project.clj` and you should be good to
 **N.B.** To build the JavaScript version if needed, enter the node folder and run `grunt`.
 
 ```
+// Given that you have node, npm and grunt installed
 cd node
+npm install
 grunt
 ```
 
@@ -68,8 +70,10 @@ npm installl clj-fuzzy
 Else, if you want to include the library in your node.js project, add the following dependency in your package.json file.
 
 ```json
-"dependencies": {
-  "clj-fuzzy": "0.1.6",
+{
+  "dependencies": {
+    "clj-fuzzy": "0.1.6",
+  }
 }
 ```
 
@@ -96,7 +100,7 @@ clj-fuzzy ships with three API namespaces: `clj-fuzzy.metrics`, `clj-fuzzy.stemm
 * [Cologne Phonetic](#cologne-phonetic)
 * [MRA codex](#mra-codex)
 
-[**JavaScript counterparts**](https://github.com/Yomguithereal/clj-fuzzy/tree/master/node)
+[**JavaScript counterparts**](https://github.com/Yomguithereal/clj-fuzzy/tree/master/node#usage)
 
 In order to be the simplest possible, the following examples `:use` the clj-fuzzy namespaces. But you should really rely on a cleaner `:require`.
 
