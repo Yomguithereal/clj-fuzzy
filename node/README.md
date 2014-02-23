@@ -38,7 +38,7 @@ To use the clj-fuzzy library client-side, just include the minified JavaScript b
 To install the latest node version of the library just run
 
 ```bash
-npm installl clj-fuzzy
+npm install clj-fuzzy
 ```
 
 Else, if you want to include the library in your node.js project, add the following dependency in your package.json file.
