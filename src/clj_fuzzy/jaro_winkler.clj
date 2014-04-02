@@ -76,7 +76,7 @@
   (let [[longest-matches shortest-matches] (matches seq1 seq2)
         m (count longest-matches)
         t (transpositions longest-matches shortest-matches)]
-    (if (= 0 m)
+    (if (zero? m)
       0
       (/ (+ (/ m (count seq1))
             (/ m (count seq2))

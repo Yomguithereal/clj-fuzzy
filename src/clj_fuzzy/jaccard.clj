@@ -19,6 +19,6 @@
 (defn distance
   "Compute the Jaccard distance between [seq1] and [seq2]."
   [seq1 seq2]
-  (let [set1 (into #{} seq1)
-        set2 (into #{} seq2)]
+  (let [set1 (set seq1)
+        set2 (set seq2)]
     (- 1 (index set1 set2))))
