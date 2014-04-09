@@ -212,6 +212,10 @@ clj_fuzzy.phonetics.nysiis('Andrew');
 
 clj_fuzzy.phonetics.nysiis('Mclaughlin');
 "MCLAGLAN"
+
+;; Compute the refined NYSIIS code of a single name
+clj_fuzzy.phonetics.nysiis('Aegir', 'refined');
+"AGAR"
 ```
 
 ### Caverphone

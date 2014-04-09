@@ -247,6 +247,10 @@ In order to be the simplest possible, the following examples `:use` the clj-fuzz
 
 (nysiis "Mclaughlin")
 "MCLAGLAN"
+
+;; Compute the refined NYSIIS code of a single name
+(nysiis "Aegir" :refined)
+"AGAR"
 ```
 
 ### Caverphone
