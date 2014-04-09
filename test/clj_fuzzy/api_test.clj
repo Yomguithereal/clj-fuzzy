@@ -25,6 +25,7 @@
   (is (= 2 (m/levensthein "book" "back")))
   (is (= 0.8 (m/dice "healed" "sealed")))
   (is (= 4/7 (m/jaccard "night" "nacht")))
+  (is (= 4/7 (m/tanimoto "night" "nacht")))
   (is (= 3 (m/hamming "2143896" "2233796")))
   (is (= 0.8222222222222223 (m/jaro "Dwayne" "Duane")))
   (is (= 0.8400000000000001 (m/jaro-winkler "Dwayne" "Duane")))

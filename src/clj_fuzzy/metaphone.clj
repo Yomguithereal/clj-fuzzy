@@ -12,6 +12,7 @@
   (:require clojure.string)
   (:use [clj-fuzzy.helpers :only [batch-replace clean-non-alphabetical]]))
 
+;; Rules to apply to the given word
 (def ^:private rules
   '(#"([bcdfhjklmnpqrstvwxyz])\1+" "$1"
     #"^ae" "E"
@@ -40,8 +41,10 @@
     #"v" "F"
     #"(?!^)[aeiou]+" ""))
 
+;; The metaphone process itself
 (defn process
   "Apply the metaphone substitution on one [word]."
   [word]
   (let [s (clojure.string/lower-case (clean-non-alphabetical word))]
     (clojure.string/upper-case (batch-replace s rules))))
+

@@ -17,6 +17,7 @@
 (def ^:export levensthein clj-fuzzy.levensthein/distance)
 (def ^:export dice clj-fuzzy.dice/coefficient)
 (def ^:export jaccard clj-fuzzy.jaccard/distance)
+(def ^:export tanimoto clj-fuzzy.jaccard/distance)
 (def ^:export hamming clj-fuzzy.hamming/distance)
 (def ^:export jaro clj-fuzzy.jaro-winkler/jaro)
 (def ^:export jaro-winkler clj-fuzzy.jaro-winkler/jaro-winkler)
