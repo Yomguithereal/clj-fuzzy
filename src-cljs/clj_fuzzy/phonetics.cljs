@@ -17,7 +17,7 @@
 
 (def ^:export metaphone clj-fuzzy.metaphone/process)
 (def ^:export soundex clj-fuzzy.soundex/process)
-(def ^:export nysiis clj-fuzzy.nysiis/original)
+(def ^:export nysiis clj-fuzzy.nysiis/process)
 (def ^:export caverphone clj-fuzzy.caverphone/process)
 (def ^:export mra-codex clj-fuzzy.match-rating/mra-codex)
 (def ^:export cologne clj-fuzzy.cologne/process)

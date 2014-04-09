@@ -18,7 +18,7 @@
 (def metaphone clj-fuzzy.metaphone/process)
 (def double-metaphone clj-fuzzy.double-metaphone/process)
 (def soundex clj-fuzzy.soundex/process)
-(def nysiis clj-fuzzy.nysiis/original)
+(def nysiis clj-fuzzy.nysiis/process)
 (def caverphone clj-fuzzy.caverphone/process)
 (def mra-codex clj-fuzzy.match-rating/mra-codex)
 (def cologne clj-fuzzy.cologne/process)
