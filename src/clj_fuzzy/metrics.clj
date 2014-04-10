@@ -18,6 +18,7 @@
 (def dice clj-fuzzy.dice/coefficient)
 (def mra-comparison clj-fuzzy.match-rating/mra-comparison)
 (def jaccard clj-fuzzy.jaccard/distance)
+(def tanimoto clj-fuzzy.jaccard/distance)
 (def hamming clj-fuzzy.hamming/distance)
 (def jaro clj-fuzzy.jaro-winkler/jaro)
 (def jaro-winkler clj-fuzzy.jaro-winkler/jaro-winkler)
