@@ -1,5 +1,0 @@
-.npmignore
-clj-fuzzy.min.js
-export.js
-node_modules
-Gruntfile.js

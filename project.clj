@@ -28,5 +28,5 @@
      :crossover-path "src-cljs/clj_fuzzy",
      :compiler
      {:pretty-print false,
-      :output-to "node/clj-fuzzy.min.js",
+      :output-to "src-js/clj-fuzzy.min.js",
       :optimizations :advanced}}]})
