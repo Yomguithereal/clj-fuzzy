@@ -58,7 +58,7 @@ grunt
 ```
 
 ### Client-side JavaScript
-To use the clj-fuzzy library client-side, just include the minified JavaScript build of the library available [here](https://raw.github.com/Yomguithereal/clj-fuzzy/master/node/index.js).
+To use the clj-fuzzy library client-side, just include the minified JavaScript build of the library available [here](https://raw.github.com/Yomguithereal/clj-fuzzy/master/src-js/index.js).
 
 ### Node.js
 To install the latest node version of the library just run
