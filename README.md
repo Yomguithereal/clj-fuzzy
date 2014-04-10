@@ -3,7 +3,7 @@ clj-fuzzy is a native Clojure / ClojureScript library providing a collection of 
 
 It can also be used in client-side JavaScript and Node.js.
 
-If you are searching for the JavaScript documentation of the library, follow this [link](https://github.com/Yomguithereal/clj-fuzzy/tree/master/node).
+If you are searching for the JavaScript documentation of the library, follow this [link](https://github.com/Yomguithereal/clj-fuzzy/blob/master/README_JS.md).
 
 ## Available algorithms
 
@@ -100,7 +100,7 @@ clj-fuzzy ships with three API namespaces: `clj-fuzzy.metrics`, `clj-fuzzy.stemm
 * [Cologne Phonetic](#cologne-phonetic)
 * [MRA codex](#mra-codex)
 
-[**JavaScript counterparts**](https://github.com/Yomguithereal/clj-fuzzy/tree/master/node#usage)
+[**JavaScript counterparts**](https://github.com/Yomguithereal/clj-fuzzy/blob/master/README_JS.md#usage)
 
 In order to be the simplest possible, the following examples `:use` the clj-fuzzy namespaces. But you should really rely on a cleaner `:require`.
 
