@@ -1,0 +1,49 @@
+{
+  "name": "clj-fuzzy",
+  "version": "0.1.6",
+  "description": "A handy collection of algorithms dealing with fuzzy strings and phonetics.",
+  "homepage": "https://github.com/Yomguithereal/clj-fuzzy",
+  "author": {
+    "name": "Yomguithereal",
+    "url": "http://github.com/Yomguithereal"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Yomguithereal/clj-fuzzy.git"
+  },
+  "main": "src-js/index.js",
+  "keywords": [
+    "fuzzy",
+    "strings",
+    "metrics",
+    "matching",
+    "clojure",
+    "clojurescript",
+    "caverphone",
+    "dice",
+    "hamming",
+    "jaccard",
+    "jaro-winkler",
+    "levensthein",
+    "nysiis",
+    "metaphone",
+    "porter",
+    "stemmer",
+    "soundex"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Yomguithereal/clj-fuzzy/issues"
+  },
+  "ignore": [
+    "./.gitignore",
+    "./.npmignore",
+    "./Gruntfile.js",
+    "./package.json",
+    "./project.clj",
+    "./src-js/export.js",
+    "./src",
+    "./src-cljs",
+    "./test"
+  ]
+}

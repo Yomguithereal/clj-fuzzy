@@ -1,7 +1,18 @@
+classes/
+checkouts/
+pom.xml
+pom.xml.asc
+*.jar
+*.rb
+*.class
+.lein-*
+.nrepl-port
+
 .gitignore
 .npmignore
 Gruntfile.js
 project.clj
+bower.json
 
 # Files
 src-js/export.js
