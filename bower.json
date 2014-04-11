@@ -36,14 +36,14 @@
     "url": "https://github.com/Yomguithereal/clj-fuzzy/issues"
   },
   "ignore": [
-    "./.gitignore",
-    "./.npmignore",
-    "./Gruntfile.js",
-    "./package.json",
-    "./project.clj",
-    "./src-js/export.js",
-    "./src",
-    "./src-cljs",
-    "./test"
+    ".gitignore",
+    ".npmignore",
+    "Gruntfile.js",
+    "package.json",
+    "project.clj",
+    "src-js/export.js",
+    "src",
+    "src-cljs",
+    "test"
   ]
 }
