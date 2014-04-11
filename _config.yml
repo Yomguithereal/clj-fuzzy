@@ -1,11 +1,10 @@
 title:        clj-fuzzy
-tagline:      'Fuzzy strings for Clojure and JavaScript'
+tagline:      'clj-fuzzy'
 description:  'A handy collection of algorithms dealing with fuzzy strings and phonetics.'
 url:          https://github.com/Yomguithereal/clj-fuzzy
 version:      0.1.6
 author:
   name:       'Yomguithereal'
 markdown:     redcarpet
-permalink:    pretty
 pygments:     true
 paginate:     5
