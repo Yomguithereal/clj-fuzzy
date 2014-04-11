@@ -34,10 +34,11 @@ clj-fuzzy embarks three types of algorithms:
 
 ---
 
-## Usage
+## Installation & Usage
 
-* Clojure bindings
-* JavaScript bindings
+* [Clojure](/clojure.html)
+* [Client-side JavaScript](/javascript.html)
+* [Node.js](/node.html)
 
 ---
 
