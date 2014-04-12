@@ -8,9 +8,9 @@ It can be used in Clojure, ClojureScript, client-side JavaScript and Node.js.
 ## Available algorithms
 clj-fuzzy embarks three types of algorithms:
 
-* [Distance metrics](http://en.wikipedia.org/wiki/String_metric) for strings and other sequences
-* [Stemmers](http://en.wikipedia.org/wiki/Stemming) trying to get a radical from given words.
-* [Phonetic algorithms](http://en.wikipedia.org/wiki/Phonetic_algorithm) whose goal is to return the approximative phonetic representation of a given string.
+* [Distance metrics](http://en.wikipedia.org/wiki/String_metric) for strings and other sequences.
+* [Stemmers](http://en.wikipedia.org/wiki/Stemming) trying to extract a radical from given words.
+* [Phonetic algorithms](http://en.wikipedia.org/wiki/Phonetic_algorithm) whose goal is to return an approximative phonetic representation of the given string.
 
 ### Metrics
 * [Sorensen / Dice coefficient](http://en.wikipedia.org/wiki/S%C3%B8rensen%E2%80%93Dice_coefficient)
