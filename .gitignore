@@ -8,6 +8,7 @@ pom.xml.asc
 *.class
 /.lein-*
 /.nrepl-port
+.DS_Store
 
 node_modules
 src-js/clj-fuzzy.temp.js

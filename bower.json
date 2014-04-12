@@ -1,8 +1,8 @@
 {
   "name": "clj-fuzzy",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "description": "A handy collection of algorithms dealing with fuzzy strings and phonetics.",
-  "homepage": "https://github.com/Yomguithereal/clj-fuzzy",
+  "homepage": "http://yomguithereal.github.io/clj-fuzzy/",
   "author": {
     "name": "Yomguithereal",
     "url": "http://github.com/Yomguithereal"

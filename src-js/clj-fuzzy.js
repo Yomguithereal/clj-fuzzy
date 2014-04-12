@@ -1,4 +1,4 @@
-/* clj-fuzzy - v0.1.6 - Author: Yomguithereal  - Repository: https://github.com/Yomguithereal/clj-fuzzy */
+/* clj-fuzzy - v0.1.7 - Author: Yomguithereal  - Repository: http://yomguithereal.github.io/clj-fuzzy/ */
 ;(function(){
 var f,aa=this;
 function n(a){var b=typeof a;if("object"==b)if(a){if(a instanceof Array)return"array";if(a instanceof Object)return b;var c=Object.prototype.toString.call(a);if("[object Window]"==c)return"object";if("[object Array]"==c||"number"==typeof a.length&&"undefined"!=typeof a.splice&&"undefined"!=typeof a.propertyIsEnumerable&&!a.propertyIsEnumerable("splice"))return"array";if("[object Function]"==c||"undefined"!=typeof a.call&&"undefined"!=typeof a.propertyIsEnumerable&&!a.propertyIsEnumerable("call"))return"function"}else return"null";else if("function"==
