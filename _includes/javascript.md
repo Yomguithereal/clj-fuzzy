@@ -16,6 +16,8 @@ When the clj-fuzzy library is included client-side, a object called `clj_fuzzy` 
 
 The library ships with three API namespaces: `clj_fuzzy.metrics`, `clj_fuzzy.stemmers` and finally `clj_fuzzy.phonetics`, embarking the relevant algorithms.
 
+---
+
 {% capture md %}{% include toc.md %}{% endcapture %}
 {{ md | markdownify }}
 

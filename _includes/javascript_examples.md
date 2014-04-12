@@ -1,5 +1,3 @@
----
-
 <h3 id="metrics">clj-fuzzy.metrics</h4>
 
 <h4 id="dice">Dice coefficient</h4>
