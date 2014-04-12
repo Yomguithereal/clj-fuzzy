@@ -30,3 +30,6 @@ The full documentation for this library is available [there](http://yomguitherea
 
 ## Contribution
 Please feel free to contribute by forking this repo. Just be sure to add relevant unit tests and pass them all before submitting any code.
+
+## License
+MIT
