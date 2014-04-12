@@ -1,22 +1,22 @@
-**[clj-fuzzy.metrics](#toc_2)**
+**[clj-fuzzy.metrics](#metrics)**
 
-* [Sorensen / Dice coefficient](#toc_3)
-* [Levensthein distance](#toc_4)
-* [Hamming distance](#toc_5)
-* [Jaccard distance](#toc_6)
-* [Jaro-Winkler distance](#toc_7)
-* [MRA Comparison](#toc_8)
+* [Sorensen / Dice coefficient](#dice)
+* [Levensthein distance](#levensthein)
+* [Hamming distance](#hamming)
+* [Jaccard distance](#jaccard)
+* [Jaro-Winkler distance](#jaro)
+* [MRA Comparison](#mra)
 
-**[clj-fuzzy.stemmers](#toc_9)**
+**[clj-fuzzy.stemmers](#stemmers)**
 
-* [Porter stemming](#toc_10)
+* [Porter stemming](#porter)
 
-**[clj-fuzzy.phonetics](#toc_11)**
+**[clj-fuzzy.phonetics](#phonetics)**
 
-* [Metaphone](#toc_12)
-* [Double Metaphone](#toc_13)
-* [Soundex](#toc_14)
-* [NYSIIS](#toc_15)
-* [Caverphone](#toc_16)
-* [Cologne Phonetic](#toc_17)
-* [MRA codex](#toc_18)
+* [Metaphone](#metaphone)
+* [Double Metaphone](#double_metaphone)
+* [Soundex](#soundex)
+* [NYSIIS](#nysiis)
+* [Caverphone](#caverphone)
+* [Cologne Phonetic](#cologne)
+* [MRA codex](#mra_codex)
