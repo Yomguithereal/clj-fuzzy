@@ -6,7 +6,7 @@ It can be used in Clojure, ClojureScript, client-side JavaScript and Node.js.
 ---
 
 ## Available algorithms
-clj-fuzzy embarks three types of algorithms:
+clj-fuzzy embarks three kinds of algorithms:
 
 * [Distance metrics](http://en.wikipedia.org/wiki/String_metric) for strings and other sequences.
 * [Stemmers](http://en.wikipedia.org/wiki/Stemming) trying to extract a radical from given words.
