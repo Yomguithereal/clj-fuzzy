@@ -48,3 +48,6 @@ Please feel free to contribute by forking this repo. Just be sure to add relevan
 ```
 lein test
 ```
+
+## License
+MIT
