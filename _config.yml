@@ -1,8 +1,7 @@
 title:        clj-fuzzy
 tagline:      'clj-fuzzy'
 description:  'A handy collection of algorithms dealing with fuzzy strings and phonetics.'
-url:          yomguithereal.github.io/clj-fuzzy
-baseUrl:      /
+baseurl:      /clj-fuzzy
 version:      0.1.7
 author:
   name:       'Yomguithereal'

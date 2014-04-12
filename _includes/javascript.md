@@ -7,7 +7,7 @@ To use the clj-fuzzy library client-side, just include the JavaScript build of t
 <script type="text/javascript" src="/path/to/your/clj-fuzzy.js" />
 ```
 
-If you need it, the [node version](/node.html) already works with `browserify` and any other tools enabling you to use `require` for client-side assets.
+If you need it, the [node version]({{ site.baseurl }}/node.html) already works with `browserify` and any other tools enabling you to use `require` for client-side assets.
 
 ---
 

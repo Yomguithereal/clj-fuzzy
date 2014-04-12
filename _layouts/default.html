@@ -7,7 +7,7 @@
 
     <header class="masthead">
       <div class="masthead-inner">
-        <h1><a href="/">{{ site.title }}</a></h1>
+        <h1><a href="{{ site.baseurl }}/">{{ site.title }}</a></h1>
         <p class="lead">{{ site.description }}</p>
 
         <div class="colophon">
@@ -16,9 +16,9 @@
               <a href="https://github.com/Yomguithereal/clj-fuzzy">GitHub project</a>
             </li>
             <li>&nbsp;</li>
-            <li><a href="/clojure.html">Clojure</a></li>
-            <li><a href="/javascript.html">Client-side JavaScript</a></li>
-            <li><a href="/node.html">Node.js</a></li>
+            <li><a href="{{ site.baseurl }}/clojure.html">Clojure</a></li>
+            <li><a href="{{ site.baseurl }}/javascript.html">Client-side JavaScript</a></li>
+            <li><a href="{{ site.baseurl }}/node.html">Node.js</a></li>
             <li>&nbsp;</li>
             <li><a href="https://github.com/Yomguithereal">{{ site.author.name }}</a></li>
             <li>Currently v{{ site.version }}</li>

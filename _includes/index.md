@@ -36,9 +36,9 @@ clj-fuzzy embarks three types of algorithms:
 
 ## Installation & Usage
 
-* [Clojure](/clojure.html)
-* [Client-side JavaScript](/javascript.html)
-* [Node.js](/node.html)
+* [Clojure]({{ site.baseurl }}/clojure.html)
+* [Client-side JavaScript]({{ site.baseurl }}/javascript.html)
+* [Node.js]({{ site.baseurl }}/node.html)
 
 ---
 
