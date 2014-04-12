@@ -1,5 +1,3 @@
-# Clojure
-
 ---
 
 ## Installation
@@ -29,6 +27,9 @@ Then include the same vector within your `project.clj` and you should be good to
 Just require or use those and their relevant functions to run the algorithms.
 
 In order to be the simplest possible, the following examples `:use` the clj-fuzzy namespaces. But you should really rely on a cleaner `:require`.
+
+{% capture md %}{% include toc.md %}{% endcapture %}
+{{ md | markdownify }}
 
 ---
 

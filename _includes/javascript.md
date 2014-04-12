@@ -1,3 +1,1 @@
-# Client-side JavaScript
-
 ---

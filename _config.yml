@@ -8,3 +8,5 @@ author:
 markdown:     redcarpet
 pygments:     true
 paginate:     5
+redcarpet:
+  extensions: [with_toc_data]
