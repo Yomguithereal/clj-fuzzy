@@ -10,4 +10,4 @@ pom.xml.asc
 /.nrepl-port
 
 node_modules
-src-js/clj-fuzzy.min.js
+src-js/clj-fuzzy.temp.js

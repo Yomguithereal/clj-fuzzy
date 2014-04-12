@@ -14,13 +14,13 @@ module.exports = function(grunt) {
         banner: '/* <%= pkg.name %> - v<%= pkg.version %> - Author: <%= pkg.author %>  - Repository: <%= pkg.homepage %> */\n'
       },
       dist: {
-        src: [jsDirectory + 'clj-fuzzy.min.js', jsDirectory + 'export.js'],
-        dest: jsDirectory + 'index.js'
+        src: [jsDirectory + 'clj-fuzzy.temp.js', jsDirectory + 'export.js'],
+        dest: jsDirectory + 'clj-fuzzy.js'
       }
     },
     clean: {
       build: {
-        src: [jsDirectory + 'clj-fuzzy.min.js']
+        src: [jsDirectory + 'clj-fuzzy.temp.js']
       }
     }
   });

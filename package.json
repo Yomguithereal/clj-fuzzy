@@ -2,7 +2,7 @@
   "name": "clj-fuzzy",
   "version": "0.1.6",
   "description": "A handy collection of algorithms dealing with fuzzy strings and phonetics.",
-  "main": "src-js/index.js",
+  "main": "src-js/clj-fuzzy.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/Yomguithereal/clj-fuzzy"

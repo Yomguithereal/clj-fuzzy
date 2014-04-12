@@ -16,6 +16,7 @@ bower.json
 
 # Files
 src-js/export.js
+src-js/clj-fuzzy.temp.js
 
 # Folders
 src/

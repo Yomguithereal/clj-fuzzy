@@ -42,6 +42,7 @@
     "package.json",
     "project.clj",
     "src-js/export.js",
+    "src-js/clj-fuzzy.temp.js",
     "src",
     "src-cljs",
     "test"
