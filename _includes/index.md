@@ -1,7 +1,7 @@
 # clj-fuzzy
 clj-fuzzy is a native Clojure library providing a collection of famous algorithms dealing with fuzzy strings and phonetics.
 
-It can be used in Clojure, ClojureScript, Client-side JavaScript and Node.js.
+It can be used in Clojure, ClojureScript, client-side JavaScript and Node.js.
 
 ---
 
