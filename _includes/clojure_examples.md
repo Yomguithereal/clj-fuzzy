@@ -168,6 +168,10 @@
 
 (caverphone "Mclaverty")
 "MKLFTA1111"
+
+;; Compute the revisited caverphone code of a single name
+(caverphone "Stevenson" :revisited)
+"STFNSN1111"
 ```
 
 <h4 id="cologne">Cologne Phonetic</h4>

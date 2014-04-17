@@ -27,8 +27,8 @@ clj-fuzzy embarks three kinds of algorithms:
 * [Metaphone](http://en.wikipedia.org/wiki/Metaphone)
 * [Double Metaphone](http://en.wikipedia.org/wiki/Metaphone#Double_Metaphone)
 * [Soundex](http://en.wikipedia.org/wiki/Soundex)
-* [NYSIIS](http://en.wikipedia.org/wiki/New_York_State_Identification_and_Intelligence_System)
-* [Caverphone](http://en.wikipedia.org/wiki/Caverphone)
+* [NYSIIS (original & refined)](http://en.wikipedia.org/wiki/New_York_State_Identification_and_Intelligence_System)
+* [Caverphone (original & revisited)](http://en.wikipedia.org/wiki/Caverphone)
 * [Cologne Phonetic](http://de.wikipedia.org/wiki/K%C3%B6lner_Phonetik)
 * [MRA codex](http://en.wikipedia.org/wiki/Match_rating_approach)
 

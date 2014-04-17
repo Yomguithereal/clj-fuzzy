@@ -121,7 +121,7 @@ clj_fuzzy.phonetics.nysiis('Andrew');
 clj_fuzzy.phonetics.nysiis('Mclaughlin');
 "MCLAGLAN"
 
-;; Compute the refined NYSIIS code of a single name
+// Compute the refined NYSIIS code of a single name
 clj_fuzzy.phonetics.nysiis('Aegir', 'refined');
 "AGAR"
 ```
@@ -134,6 +134,10 @@ clj_fuzzy.phonetics.caverphone('Henrichsen');
 
 clj_fuzzy.phonetics.caverphone('Mclaverty');
 "MKLFTA1111"
+
+// Compute the revisited caverphone code of a single name
+clj_fuzzy.phonetics.caverphone('Stevenson', 'revisited');
+"STFNSN1111"
 ```
 
 <h4 id="cologne">Cologne Phonetic</h4>
