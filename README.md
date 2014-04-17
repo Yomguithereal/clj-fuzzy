@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/Yomguithereal/clj-fuzzy.svg)](https://travis-ci.org/Yomguithereal/clj-fuzzy)
+
 # clj-fuzzy
 clj-fuzzy is a native Clojure library providing a collection of famous algorithms dealing with fuzzy strings and phonetics.
 
@@ -23,8 +25,8 @@ The full documentation for this library is available [there](http://yomguitherea
 * [Metaphone](http://en.wikipedia.org/wiki/Metaphone)
 * [Double Metaphone](http://en.wikipedia.org/wiki/Metaphone#Double_Metaphone)
 * [Soundex](http://en.wikipedia.org/wiki/Soundex)
-* [NYSIIS](http://en.wikipedia.org/wiki/New_York_State_Identification_and_Intelligence_System)
-* [Caverphone](http://en.wikipedia.org/wiki/Caverphone)
+* [NYSIIS (original & refined)](http://en.wikipedia.org/wiki/New_York_State_Identification_and_Intelligence_System)
+* [Caverphone (original & revisited)](http://en.wikipedia.org/wiki/Caverphone)
 * [Cologne Phonetic](http://de.wikipedia.org/wiki/K%C3%B6lner_Phonetik)
 * [MRA codex](http://en.wikipedia.org/wiki/Match_rating_approach)
 
