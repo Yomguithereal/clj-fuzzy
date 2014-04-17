@@ -12,3 +12,5 @@ pom.xml.asc
 
 node_modules
 src-js/clj-fuzzy.temp.js
+
+TODO.md

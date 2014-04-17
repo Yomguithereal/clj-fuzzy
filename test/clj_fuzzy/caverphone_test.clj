@@ -10,6 +10,8 @@
   (:require [clojure.test :refer :all]
             [clj-fuzzy.caverphone :refer :all]))
 
+(def process-revisited (fn [word] (process word :revisited)))
+
 (deftest process-test
   (is (= "ANRKSN1111" (process "Henrichsen")))
   (is (= "ANRKSN1111" (process "Henricsson")))
@@ -28,3 +30,8 @@
   (is (= "SLKMP11111" (process "Slocumb")))
 
   (is (= "WTLM111111" (process "Whitlam"))))
+
+(deftest process-revisited-test
+  (is (= "PTA1111111" (process-revisited "Peter")))
+  (is (= "ANRKSN1111" (process-revisited "Henrichsen")))
+  (is (= "STFNSN1111" (process-revisited "Stevenson"))))
