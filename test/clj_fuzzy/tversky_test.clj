@@ -22,7 +22,7 @@
 (defn tversky-dice [s1 s2] (index (bigrams s1) (bigrams s2) :alpha 0.5 :beta 0.5))
 (defn compare-dice [s1 s2] (is (= (clj-fuzzy.dice/coefficient s1 s2) (tversky-dice s1 s2))))
 
-(deftest assymetric-index-test
+(deftest assymmetric-index-test
   (compare-jaccard "abc" "abc")
   (compare-jaccard "abc" "xyz")
   (compare-jaccard "night" "nacht")

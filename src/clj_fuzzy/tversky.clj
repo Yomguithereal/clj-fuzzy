@@ -14,8 +14,8 @@
 (defn- R [X Y] (count (difference X Y)))
 
 ;; Main Functions
-(defn- assymetric-index
-  "Compute the original assymetric Tversky index for the given [sequences] and
+(defn- assymmetric-index
+  "Compute the original assymmetric Tversky index for the given [sequences] and
    the given [alpha] and [beta]."
   [seq1 seq2 alpha beta]
   (let [X (set seq1)
@@ -26,8 +26,8 @@
           (* alpha (R X Y))
           (* beta (R Y X))))))
 
-(defn- symetric-index
-  "Compute the symetric variant of the Tversky undex for the given [sequences] and
+(defn- symmetric-index
+  "Compute the symmetric variant of the Tversky undex for the given [sequences] and
    the given [alpha] and [beta]."
   [seq1 seq2 alpha beta]
   (let [X (set seq1)
@@ -45,5 +45,5 @@
 
 (defn index
   "Compute the tversky index for the given [sequences] and using the desired [method]."
-  [seq1 seq2 & {:keys [alpha beta symetric] :or {alpha 1 beta 1 symetric false}}]
-  ((if symetric symetric-index assymetric-index) seq1 seq2 alpha beta))
+  [seq1 seq2 & {:keys [alpha beta symmetric] :or {alpha 1 beta 1 symmetric false}}]
+  ((if symmetric symmetric-index assymmetric-index) seq1 seq2 alpha beta))
