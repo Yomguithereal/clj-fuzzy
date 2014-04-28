@@ -1,12 +1,16 @@
 <h3 id="metrics">clj-fuzzy.metrics</h4>
 
-<h4 id="dice">Dice coefficient</h4>
+<h4 id="dice">Sorensen / Dice coefficient</h4>
 ```js
 // Compute the Dice coefficient of two words
 clj_fuzzy.metrics.dice('healed', 'sealed');
 0.8
 
 clj_fuzzy.metrics.dice('healed', 'herded');
+0.4
+
+// There is also a Sorensen alias
+clj_fuzzy.metrics.sorensen('healed', 'herded');
 0.4
 ```
 
@@ -30,7 +34,7 @@ clj_fuzzy.metrics.hamming([0, 1, 0, 1], [1, 1, 0, 1]);
 1
 ```
 
-<h4 id="jaccard">Jaccard distance</h4>
+<h4 id="jaccard">Jaccard / Tanimoto distance</h4>
 ```js
 // Compute the Jaccard distance between two words
 // 0 meaning two identical strings and 1 two totally different ones
@@ -38,6 +42,10 @@ clj_fuzzy.metrics.jaccard('abc', 'xyz');
 1
 
 clj_fuzzy.metrics.jaccard('night', 'nacht');
+0.5714285714285714
+
+// If you are more the Tanimoto kind of guy, an alias exists
+clj_fuzzy.metrics.tanimoto('night', 'nacht');
 0.5714285714285714
 ```
 
@@ -62,6 +70,32 @@ clj_fuzzy.metrics.mra_comparison('Byrne', 'Boern');
 	code: ['BYRN', 'BRN'],
 	match: true
 }
+```
+
+<h4 id="tversky">Tversky Index</h4>
+```js
+// Compute the Tversky index of two sequences.
+clj_fuzzy.metrics.tversky('night', 'nacht');
+0.42857142857142855
+
+// Compute the same index for a precise alpha and beta value
+// Default value is alpha = beta = 1 and produces the Jaccard coefficient
+// alpha = beta = 0.5 produces the Dice coefficient (without bigrams)
+clj_fuzzy.metrics.tversky('healed', 'sealed', {alpha: 0.5, beta: 0.5});
+0.8
+
+// You can also specify whether you want to compute the
+// symmetric variant of the index
+clj_fuzzy.metrics.tversky(
+	'healed',
+	'sealed',
+	{
+		alpha: 1,
+		beta: 1,
+		symmetric: true
+	}
+);
+0.8
 ```
 
 ---
@@ -134,6 +168,10 @@ clj_fuzzy.phonetics.caverphone('Henrichsen');
 
 clj_fuzzy.phonetics.caverphone('Mclaverty');
 "MKLFTA1111"
+
+// Compute the "revisited" caverphone code of a single name
+clj_fuzzy.phonetics.caverphone('Stevenson', 'revisited');
+"STFNSN1111"
 ```
 
 <h4 id="cologne">Cologne Phonetic</h4>

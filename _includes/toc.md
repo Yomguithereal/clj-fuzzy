@@ -3,9 +3,10 @@
 * [Sorensen / Dice coefficient](#dice)
 * [Levensthein distance](#levensthein)
 * [Hamming distance](#hamming)
-* [Jaccard distance](#jaccard)
+* [Jaccard / Tanimoto distance](#jaccard)
 * [Jaro-Winkler distance](#jaro)
 * [MRA Comparison](#mra)
+* [Tversky Index](#tversky)
 
 **[clj-fuzzy.stemmers](#stemmers)**
 

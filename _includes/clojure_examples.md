@@ -1,6 +1,6 @@
 <h3 id="metrics">clj-fuzzy.metrics</h4>
 
-<h4 id="dice">Dice coefficient</h4>
+<h4 id="dice">Sorensen / Dice coefficient</h4>
 ```clj
 (ns my.clojure-namespace
   (:use clj-fuzzy.metrics))
@@ -10,6 +10,10 @@
 0.8
 
 (dice "healed" "herded")
+0.4
+
+;; There is also a Sorensen alias
+(sorensen "healed" "herded")
 0.4
 ```
 
@@ -39,7 +43,7 @@
 1
 ```
 
-<h4 id="jaccard">Jaccard distance</h4>
+<h4 id="jaccard">Jaccard / Tanimoto distance</h4>
 ```clj
 (ns my.clojure-namespace
   (:use clj-fuzzy.metrics))
@@ -50,6 +54,10 @@
 1
 
 (jaccard "night" "nacht")
+4/7
+
+;; If you are more the Tanimoto kind of guy, an alias exists
+(tanimoto "night" "nacht")
 4/7
 ```
 
@@ -78,6 +86,27 @@
  :similarity 5
  :codex ["BYRN" "BRN"]
  :match true}
+```
+
+<h4 id="tversky">Tversky Index</h4>
+```clj
+(ns my.clojure-namespace
+  (:use clj-fuzzy.metrics))
+
+;; Compute the Tversky index of two sequences.
+(tversky "night" "nacht")
+3/7
+
+;; Compute the same index for a precise alpha and beta value
+;; Default value is alpha = beta = 1 and produces the Jaccard coefficient
+;; alpha = beta = 0.5 produces the Dice coefficient (without bigrams)
+(tversky "healed" "sealed" :alpha 0.5 :beta 0.5)
+0.8
+
+;; You can also specify whether you want to compute the
+;; symmetric variant of the index
+(tversky "healed" "sealed" :alpha 1 :beta 1 :symmetric true)
+0.8
 ```
 
 ---
@@ -168,6 +197,10 @@
 
 (caverphone "Mclaverty")
 "MKLFTA1111"
+
+;; Compute the "revisited" caverphone code of a single name
+(caverphone "Stevenson" :revisited)
+"STFNSN1111"
 ```
 
 <h4 id="cologne">Cologne Phonetic</h4>
