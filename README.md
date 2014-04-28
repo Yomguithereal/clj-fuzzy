@@ -14,9 +14,10 @@ The full documentation for this library is available [there](http://yomguitherea
 * [Sorensen / Dice coefficient](http://en.wikipedia.org/wiki/S%C3%B8rensen%E2%80%93Dice_coefficient)
 * [Levensthein distance](http://en.wikipedia.org/wiki/Levenshtein_distance)
 * [Hamming distance](http://en.wikipedia.org/wiki/Hamming_distance)
-* [Jaccard distance](http://en.wikipedia.org/wiki/Jaccard_index)
+* [Jaccard / Tanimoto distance](http://en.wikipedia.org/wiki/Jaccard_index)
 * [Jaro-Winkler distance](http://en.wikipedia.org/wiki/Jaro%E2%80%93Winkler_distance)
 * [MRA comparison](http://en.wikipedia.org/wiki/Match_rating_approach)
+* [Tversky index](http://en.wikipedia.org/wiki/Tversky_index)
 
 ### Stemmers
 * [Porter stemming](http://en.wikipedia.org/wiki/Stemming)
