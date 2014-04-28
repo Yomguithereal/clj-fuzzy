@@ -21,7 +21,8 @@
                 clj-fuzzy.metaphone
                 clj-fuzzy.nysiis
                 clj-fuzzy.porter
-                clj-fuzzy.soundex],
+                clj-fuzzy.soundex
+                clj-fuzzy.tversky],
    :builds
    [{:crossover-jar true,
      :source-paths ["src-cljs"],

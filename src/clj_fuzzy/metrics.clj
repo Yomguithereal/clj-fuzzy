@@ -12,7 +12,8 @@
               clj-fuzzy.match-rating
               clj-fuzzy.jaccard
               clj-fuzzy.hamming
-              clj-fuzzy.jaro-winkler))
+              clj-fuzzy.jaro-winkler
+              clj-fuzzy.tversky))
 
 (def levensthein clj-fuzzy.levensthein/distance)
 (def dice clj-fuzzy.dice/coefficient)
@@ -23,3 +24,4 @@
 (def hamming clj-fuzzy.hamming/distance)
 (def jaro clj-fuzzy.jaro-winkler/jaro)
 (def jaro-winkler clj-fuzzy.jaro-winkler/jaro-winkler)
+(def tversky clj-fuzzy.tversky/index)
