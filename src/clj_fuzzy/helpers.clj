@@ -9,6 +9,8 @@
 (ns clj-fuzzy.helpers
   (:require clojure.string))
 
+;; Strings helpers
+;;----------------
 (defn slice
   "Slice a [string] from [start] and up to [length]."
   [string start length]
@@ -31,14 +33,32 @@
   (let [replacement-list (partition 2 replacements)]
     (reduce #(apply clojure.string/replace %1 %2) string replacement-list)))
 
-(defn distinct-consecutive
-  "Drop consecutive duplicates in sequence"
-  [sequence] (map first (partition-by identity sequence)))
+(defn clean-non-alphabetical
+  "Drop every non alphabetical character in [word]."
+  [word]
+  (clojure.string/replace word #"[^a-zA-Z]" ""))
 
+;; Regex helpers
+;;--------------
 (defn re-test?
   "Test a [string] against a [regular-expression]."
   [regular-expression string]
   (not (nil? (re-find regular-expression string))))
+
+;; Sequences helpers
+;;------------------
+(defn distinct-consecutive
+  "Drop consecutive duplicates in sequence"
+  [sequence] (map first (partition-by identity sequence)))
+
+(defn n-grams
+  "Lazily compute the n-grams of a sequence."
+  [n s]
+  (partition n 1 s))
+
+(defn bigrams [s] (n-grams 2 s))
+(defn trigrams [s] (n-grams 3 s))
+(defn quadrigrams [s] (n-grams 4 s))
 
 (defn in?
   "Checks whether a [string] is contained within a [sequence]."
@@ -46,8 +66,3 @@
   (boolean (some #{string} sequence)))
 
 (def not-in? (complement in?))
-
-(defn clean-non-alphabetical
-  "Drop every non alphabetical character in [word]."
-  [word]
-  (clojure.string/replace word #"[^a-zA-Z]" ""))
