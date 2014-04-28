@@ -24,6 +24,7 @@
 (deftest metrics-test
   (is (= 2 (m/levensthein "book" "back")))
   (is (= 0.8 (m/dice "healed" "sealed")))
+  (is (= 0.8 (m/sorensen "healed" "sealed")))
   (is (= 4/7 (m/jaccard "night" "nacht")))
   (is (= 4/7 (m/tanimoto "night" "nacht")))
   (is (= 3 (m/hamming "2143896" "2233796")))

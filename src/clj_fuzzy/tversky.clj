@@ -47,5 +47,3 @@
   "Compute the tversky index for the given [sequences] and using the desired [method]."
   [seq1 seq2 & {:keys [alpha beta symetric] :or {alpha 1 beta 1 symetric false}}]
   ((if symetric symetric-index assymetric-index) seq1 seq2 alpha beta))
-
-;(process "healed" "sold" :symetric false :alpha 0.5 :beta 0.5)

@@ -16,6 +16,7 @@
 
 (def levensthein clj-fuzzy.levensthein/distance)
 (def dice clj-fuzzy.dice/coefficient)
+(def sorensen clj-fuzzy.dice/coefficient)
 (def mra-comparison clj-fuzzy.match-rating/mra-comparison)
 (def jaccard clj-fuzzy.jaccard/distance)
 (def tanimoto clj-fuzzy.jaccard/distance)

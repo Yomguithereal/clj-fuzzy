@@ -16,6 +16,7 @@
 
 (def ^:export levensthein clj-fuzzy.levensthein/distance)
 (def ^:export dice clj-fuzzy.dice/coefficient)
+(def ^:export sorensen clj-fuzzy.dice/coefficient)
 (def ^:export jaccard clj-fuzzy.jaccard/distance)
 (def ^:export tanimoto clj-fuzzy.jaccard/distance)
 (def ^:export hamming clj-fuzzy.hamming/distance)
