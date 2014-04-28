@@ -24,7 +24,8 @@
     "metaphone",
     "porter",
     "stemmer",
-    "soundex"
+    "soundex",
+    "tversky"
   ],
   "author": "Yomguithereal",
   "license": "MIT",

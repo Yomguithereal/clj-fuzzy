@@ -29,7 +29,8 @@
     "metaphone",
     "porter",
     "stemmer",
-    "soundex"
+    "soundex",
+    "tversky"
   ],
   "license": "MIT",
   "bugs": {
