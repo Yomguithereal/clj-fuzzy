@@ -44,6 +44,7 @@
                 (Math/pow (- 1 alpha) b)))))))
 
 (defn index
-  "Compute the tversky index for the given [sequences] and using the desired [method]."
+  "Compute the tversky index for the given [sequences] with given [:alpha] and [:beta]
+   and in a [:symmetric] fashion or not."
   [seq1 seq2 & {:keys [alpha beta symmetric] :or {alpha 1 beta 1 symmetric false}}]
   ((if symmetric symmetric-index assymmetric-index) seq1 seq2 alpha beta))

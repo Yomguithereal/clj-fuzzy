@@ -13,7 +13,8 @@
             clj-fuzzy.jaccard
             clj-fuzzy.hamming
             clj-fuzzy.jaro-winkler
-            clj-fuzzy.tversky))
+            clj-fuzzy.tversky)
+  (:use [clj-fuzzy.js-helpers :only [keyword-fn->js]]))
 
 (def ^:export levensthein clj-fuzzy.levensthein/distance)
 (def ^:export dice clj-fuzzy.dice/coefficient)
@@ -23,8 +24,9 @@
 (def ^:export hamming clj-fuzzy.hamming/distance)
 (def ^:export jaro clj-fuzzy.jaro-winkler/jaro)
 (def ^:export jaro-winkler clj-fuzzy.jaro-winkler/jaro-winkler)
-(def ^:export tversky clj-fuzzy.tversky/index)
 
 ;; JavaScript Optimizations
 (defn ^:export mra-comparison [string1 string2]
   (clj->js (clj-fuzzy.match-rating/mra-comparison string1 string2)))
+
+(def ^:export tversky (keyword-fn->js clj-fuzzy.tversky/index 2))
