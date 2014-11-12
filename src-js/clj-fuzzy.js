@@ -241,5 +241,12 @@ ea("clj_fuzzy.metrics.mra_comparison",function(a,b){var c=De,d;d=dg(a);var e=dg(
 e],null),Qe,k>=g],null)}else d=null;return c(d)});var Hg=nf.a(zf,2);ea("clj_fuzzy.metrics.tversky",Hg);
 })();
 
-if (typeof exports !== 'undefined' && this.exports !== exports)
-  module.exports = clj_fuzzy;
+if (typeof exports !== 'undefined') {
+  if (typeof module !== 'undefined' && module.exports)
+    exports = module.exports = clj_fuzzy;
+  exports.clj_fuzzy = clj_fuzzy;
+}
+else if (typeof define === 'function' && define.amd)
+  define('clj_fuzzy', [], function() {
+    return clj_fuzzy;
+  });
