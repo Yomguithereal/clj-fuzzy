@@ -10,6 +10,7 @@ pom.xml.asc
 
 .gitignore
 .npmignore
+.travis.yml
 Gruntfile.js
 project.clj
 bower.json
@@ -19,6 +20,7 @@ src-js/export.js
 src-js/clj-fuzzy.temp.js
 
 # Folders
+node_modules/
 src/
 src-cljs/
 target/
