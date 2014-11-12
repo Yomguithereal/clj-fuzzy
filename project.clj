@@ -3,7 +3,7 @@
   :url "http://yomguithereal.github.io/clj-fuzzy/"
   :license {:name "MIT"
             :url "http://opensource.org/licenses/MIT"}
-  :dependencies [[org.clojure/clojure "1.5.1"]
+  :dependencies [[org.clojure/clojure "1.6.0"]
                  [org.clojure/clojurescript "0.0-2202"]]
   :plugins [[lein-kibit "0.0.8"]
             [lein-cljsbuild "1.0.3"]]
