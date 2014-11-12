@@ -25,6 +25,6 @@
   [string1 string2]
   (let [p1 (letter-pairs string1)
         p2 (letter-pairs string2)
-        sum (+ (count p1) (count p2))]
+        sum (+ (count (set p1)) (count (set p2)))]
     (/ (* 2.0 (count (clojure.set/intersection (set p1) (set p2))))
        sum)))

@@ -17,4 +17,5 @@
   (is (= 0.4444444444444444 (coefficient "healed" "heard")))
   (is (= 0.4 (coefficient "healed" "herded")))
   (is (= 0.25 (coefficient "healed" "help")))
-  (is (= 0.0 (coefficient "healed" "sold"))))
+  (is (= 0.0 (coefficient "healed" "sold")))
+  (is (= 1.0 (coefficient "tomato" "tomato"))))
