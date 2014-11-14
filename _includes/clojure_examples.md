@@ -17,16 +17,16 @@
 0.4
 ```
 
-<h4 id="levensthein">Levensthein distance</h4>
+<h4 id="levenshtein">Levenshtein distance</h4>
 ```clj
 (ns my.clojure-namespace
   (:use clj-fuzzy.metrics))
 
-;; Compute the Levensthein distance between two words
-(levensthein "book" "back")
+;; Compute the Levenshtein distance between two words
+(levenshtein "book" "back")
 2
 
-(levensthein "hello" "helo")
+(levenshtein "hello" "helo")
 1
 ```
 

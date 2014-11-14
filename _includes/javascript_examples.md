@@ -14,13 +14,13 @@ clj_fuzzy.metrics.sorensen('healed', 'herded');
 0.4
 ```
 
-<h4 id="levensthein">Levensthein distance</h4>
+<h4 id="levenshtein">Levenshtein distance</h4>
 ```js
-// Compute the Levensthein distance between two words
-clj_fuzzy.metrics.levensthein('book', 'back');
+// Compute the Levenshtein distance between two words
+clj_fuzzy.metrics.levenshtein('book', 'back');
 2
 
-clj_fuzzy.metrics.levensthein('hello', 'helo');
+clj_fuzzy.metrics.levenshtein('hello', 'helo');
 1
 ```
 
