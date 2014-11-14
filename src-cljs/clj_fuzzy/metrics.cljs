@@ -7,7 +7,7 @@
 ;;   Version: 0.1
 ;;
 (ns clj-fuzzy.metrics
-  (:require clj-fuzzy.levensthein
+  (:require clj-fuzzy.levenshtein
             clj-fuzzy.dice
             clj-fuzzy.match-rating
             clj-fuzzy.jaccard
@@ -16,7 +16,7 @@
             clj-fuzzy.tversky)
   (:use [clj-fuzzy.js-helpers :only [keyword-fn->js]]))
 
-(def ^:export levensthein clj-fuzzy.levensthein/distance)
+(def ^:export levenshtein clj-fuzzy.levenshtein/distance)
 (def ^:export dice clj-fuzzy.dice/coefficient)
 (def ^:export sorensen clj-fuzzy.dice/coefficient)
 (def ^:export jaccard clj-fuzzy.jaccard/distance)

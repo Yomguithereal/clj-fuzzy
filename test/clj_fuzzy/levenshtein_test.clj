@@ -1,16 +1,16 @@
 ;; -------------------------------------------------------------------
-;; clj-fuzzy Levensthein Tests
+;; clj-fuzzy Levenshtein Tests
 ;; -------------------------------------------------------------------
 ;;
 ;;
 ;;   Author: PLIQUE Guillaume (Yomguithereal)
 ;;   Version: 0.1
 ;;
-(ns clj-fuzzy.levensthein-test
+(ns clj-fuzzy.levenshtein-test
   (:require [clojure.test :refer :all]
-            [clj-fuzzy.levensthein :refer :all]))
+            [clj-fuzzy.levenshtein :refer :all]))
 
-(deftest levensthein-test
+(deftest levenshtein-test
   (is (= 2 (distance "book" "back")))
   (is (= 1 (distance "hello" "helo")))
   (is (= 8 (distance "good sir" "baal")))

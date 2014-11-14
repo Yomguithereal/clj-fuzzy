@@ -7,7 +7,7 @@
 ;;   Version: 0.1
 ;;
 (ns clj-fuzzy.metrics
-    (:require clj-fuzzy.levensthein
+    (:require clj-fuzzy.levenshtein
               clj-fuzzy.dice
               clj-fuzzy.match-rating
               clj-fuzzy.jaccard
@@ -15,7 +15,7 @@
               clj-fuzzy.jaro-winkler
               clj-fuzzy.tversky))
 
-(def levensthein clj-fuzzy.levensthein/distance)
+(def levenshtein clj-fuzzy.levenshtein/distance)
 (def dice clj-fuzzy.dice/coefficient)
 (def sorensen clj-fuzzy.dice/coefficient)
 (def mra-comparison clj-fuzzy.match-rating/mra-comparison)

@@ -1,5 +1,5 @@
 ;; -------------------------------------------------------------------
-;; clj-fuzzy Levensthein
+;; clj-fuzzy Levenshtein
 ;; -------------------------------------------------------------------
 ;;
 ;;
@@ -9,10 +9,10 @@
 ;;     http://www.learningclojure.com/2010/11/
 ;;            levenshtein-distance-edit-distance.html
 ;;
-(ns clj-fuzzy.levensthein)
+(ns clj-fuzzy.levenshtein)
 
 (defn distance
-  "Compute the levensthein distance between two [sequences]."
+  "Compute the levenshtein distance between two [sequences]."
   [sequence1 sequence2]
   (cond
     (empty? sequence1) (count sequence2)

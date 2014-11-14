@@ -16,7 +16,7 @@
                 clj-fuzzy.helpers
                 clj-fuzzy.jaccard
                 clj-fuzzy.jaro_winkler
-                clj-fuzzy.levensthein
+                clj-fuzzy.levenshtein
                 clj-fuzzy.match_rating
                 clj-fuzzy.metaphone
                 clj-fuzzy.nysiis

@@ -19,7 +19,7 @@
     "hamming",
     "jaccard",
     "jaro-winkler",
-    "levensthein",
+    "levenshtein",
     "nysiis",
     "metaphone",
     "porter",

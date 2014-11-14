@@ -22,7 +22,7 @@
   (is (= "65752682" (p/cologne "Müller-Lüdenscheidt"))))
 
 (deftest metrics-test
-  (is (= 2 (m/levensthein "book" "back")))
+  (is (= 2 (m/levenshtein "book" "back")))
   (is (= 0.8 (m/dice "healed" "sealed")))
   (is (= 0.8 (m/sorensen "healed" "sealed")))
   (is (= 4/7 (m/jaccard "night" "nacht")))

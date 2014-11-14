@@ -12,7 +12,7 @@ The full documentation for this library is available [there](http://yomguitherea
 
 ### Metrics
 * [Sorensen / Dice coefficient](http://en.wikipedia.org/wiki/S%C3%B8rensen%E2%80%93Dice_coefficient)
-* [Levensthein distance](http://en.wikipedia.org/wiki/Levenshtein_distance)
+* [Levenshtein distance](http://en.wikipedia.org/wiki/Levenshtein_distance)
 * [Hamming distance](http://en.wikipedia.org/wiki/Hamming_distance)
 * [Jaccard / Tanimoto distance](http://en.wikipedia.org/wiki/Jaccard_index)
 * [Jaro-Winkler distance](http://en.wikipedia.org/wiki/Jaro%E2%80%93Winkler_distance)
