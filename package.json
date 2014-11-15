@@ -23,6 +23,7 @@
     "nysiis",
     "metaphone",
     "porter",
+    "lancaster",
     "stemmer",
     "soundex",
     "tversky"
