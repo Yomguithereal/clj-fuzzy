@@ -29,7 +29,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-exec');
   grunt.loadNpmTasks('grunt-contrib-clean');
 
-  // By default, will check lint, test and minify:
+  // By default, will compile clojurescript, concatenate and clean.
   grunt.registerTask(
     'default',
     ['exec:cljsbuild', 'concat:dist', 'clean:build']
