@@ -60,6 +60,11 @@
 (defn trigrams [s] (n-grams 3 s))
 (defn quadrigrams [s] (n-grams 4 s))
 
+(defn- any?
+  "Is any of the [coll] item true according to the given [predicate]?"
+  [pred coll]
+  (boolean (some pred coll)))
+
 (defn in?
   "Checks whether a [string] is contained within a [sequence]."
   [string sequence]

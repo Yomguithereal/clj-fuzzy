@@ -38,11 +38,6 @@
   (:use [clj-fuzzy.helpers :only [slice]]))
 
 ;; String utilities
-(defn- any?
-  "Is any of the [coll] item true according to the given [predicate]?"
-  [pred coll]
-  (boolean (some pred coll)))
-
 (defn- char-at
   "Safe char-at function."
   [s at]
