@@ -44,7 +44,7 @@
    '(#"ero$" "eri")
    '(#"mur$")
    '(#"mus$")
-   '(#"ris$"
+   '(#"ris$")
    '(#"sti$")
    '(#"tis$")
    '(#"tur$")
@@ -84,12 +84,12 @@
 (defn- drop-second-suffixes
   "Drop a second array of popular suffixes in the given [stem] and apply a
    replacement in some cases."
-   [stem]
-   (if-let [rule (some #(re-test? % stem) first-suffixes)
-            match (first rule)
-            replacement (or (second rule) "")]
-      (clojure.string/replace stem match replacement)
-      stem))
+  [stem]
+  (if-let [rule (some #(re-test? % stem) second-suffixes)]
+    (let [match (first rule)
+          replacement (or (second rule) "")]
+      (clojure.string/replace stem match replacement))
+    stem))
 
 (defn- prep-word
   "Prepare a [word] before its pass through the stemming algorithm."
@@ -102,4 +102,10 @@
 (defn stem
   "Stem the given latin [word]."
   [word]
-  ())
+  (if-let [stem (handle-que word)]
+    (let [first-suffix-stem (drop-first-suffixes stem)
+          second-suffix-stem (drop-second-suffixes first-suffix-stem)]
+      ({:noun (if (> (count first-suffix-stem) 1) first-suffix-stem word)
+        :verb (if (> (count second-suffix-stem) 1) second-suffix-stem word)}))
+    {:noun word
+     :verb word}))
