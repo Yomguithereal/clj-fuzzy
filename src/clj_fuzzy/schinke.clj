@@ -6,7 +6,7 @@
 ;;
 ;;   Source: http://snowball.tartarus.org/otherapps/schinke/intro.html
 ;;
-;;   Description: The Schinke stemming algorithm aims at compute latin words
+;;   Description: The Schinke stemming algorithm aims at computing latin words
 ;;     and stem them into a name and verb form.
 ;;
 (ns clj-fuzzy.schinke
@@ -26,30 +26,30 @@
    "detorque" "decoque" "excoque" "extorque" "obtorque" "optorque" "retorque" "recoque"
    "attorque" "incoque" "intorque" "praetorque"])
 
-(def ^:private first-suffixes
+(def ^:private simple-suffixes
   [#"ibus$" #"ius$"  #"ae$"   #"am$"   #"as$"   #"em$"   #"es$"   #"ia$"
    #"is$"   #"nt$"   #"os$"   #"ud$"   #"um$"   #"us$"   #"a$"    #"e$"
    #"i$"    #"o$"    #"u$"])
 
-(def ^:private second-suffixes
-  ['(#"iuntur$" "erunt")
-   '(#"beris$" "bor")
-   '(#"erunt$")
-   '(#"untur$" "iunt")
-   '(#"iunt$")
+(def ^:private verb-suffixes
+  ['(#"iuntur$" "i")
+   '(#"erunt$" "i")
+   '(#"untur$" "i")
+   '(#"iunt$" "i")
+   '(#"unt$" "i")
+   '(#"beris$" "bi")
+   '(#"bor$" "bi")
+   '(#"bo$" "bi")
+   '(#"ero$" "eri")
    '(#"mini$")
    '(#"ntur$")
    '(#"stis$")
-   '(#"bor$")
-   '(#"ero$" "eri")
    '(#"mur$")
    '(#"mus$")
    '(#"ris$")
    '(#"sti$")
    '(#"tis$")
    '(#"tur$")
-   '(#"unt$" "i")
-   '(#"bo$" "bi")
    '(#"ns$")
    '(#"nt$")
    '(#"ri$")
@@ -72,20 +72,20 @@
    (if (and (re-test? #"que$" stem)
             (in? stem que-rules))
     false
-    stem))
+    (clojure.string/replace stem #"que$" "")))
 
-(defn- drop-first-suffixes
+(defn- drop-simple-suffixes
   "Drop a first array of popular suffixes in the given [stem]."
   [stem]
-  (if-let [rule (some #(re-test? % stem) first-suffixes)]
+  (if-let [rule (some #(when (re-test? % stem) %) simple-suffixes)]
     (clojure.string/replace stem rule "")
     stem))
 
-(defn- drop-second-suffixes
+(defn- drop-verb-suffixes
   "Drop a second array of popular suffixes in the given [stem] and apply a
    replacement in some cases."
   [stem]
-  (if-let [rule (some #(re-test? % stem) second-suffixes)]
+  (if-let [rule (some #(when (re-test? (first %) stem) %) verb-suffixes)]
     (let [match (first rule)
           replacement (or (second rule) "")]
       (clojure.string/replace stem match replacement))
@@ -102,10 +102,11 @@
 (defn stem
   "Stem the given latin [word]."
   [word]
-  (if-let [stem (handle-que word)]
-    (let [first-suffix-stem (drop-first-suffixes stem)
-          second-suffix-stem (drop-second-suffixes first-suffix-stem)]
-      ({:noun (if (> (count first-suffix-stem) 1) first-suffix-stem word)
-        :verb (if (> (count second-suffix-stem) 1) second-suffix-stem word)}))
-    {:noun word
-     :verb word}))
+  (let [pword (prep-word word)]
+    (if-let [stem (handle-que pword)]
+      (let [simple-suffix-stem (drop-simple-suffixes stem)
+            verb-suffix-stem (drop-verb-suffixes stem)]
+        {:noun (if (> (count simple-suffix-stem) 1) simple-suffix-stem stem)
+         :verb (if (> (count verb-suffix-stem) 1) verb-suffix-stem stem)})
+      {:noun pword
+       :verb pword})))
