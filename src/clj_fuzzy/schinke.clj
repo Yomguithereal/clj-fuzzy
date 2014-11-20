@@ -32,15 +32,15 @@
    #"i$"    #"o$"    #"u$"])
 
 (def ^:private verb-suffixes
-  ['(#"iuntur$" "i")
-   '(#"erunt$" "i")
-   '(#"untur$" "i")
-   '(#"iunt$" "i")
-   '(#"unt$" "i")
-   '(#"beris$" "bi")
-   '(#"bor$" "bi")
-   '(#"bo$" "bi")
-   '(#"ero$" "eri")
+  ['(#"iuntur$" "$1i")
+   '(#"erunt$" "$1i")
+   '(#"untur$" "$1i")
+   '(#"iunt$" "$1i")
+   '(#"unt$" "$1i")
+   '(#"beris$" "$1bi")
+   '(#"bor$" "$1bi")
+   '(#"bo$" "$1bi")
+   '(#"ero$" "$1eri")
    '(#"mini$")
    '(#"ntur$")
    '(#"stis$")
@@ -86,7 +86,9 @@
    replacement in some cases."
   [stem]
   (if-let [rule (some #(when (re-test? (first %) stem) %) verb-suffixes)]
-    (let [match (first rule)
+    (let [match (if (second rule)
+                  (re-pattern (str "(.{2,})" (first rule)))
+                  (first rule))
           replacement (or (second rule) "")]
       (clojure.string/replace stem match replacement))
     stem))
