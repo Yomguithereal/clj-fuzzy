@@ -22,6 +22,7 @@
                 clj-fuzzy.metaphone
                 clj-fuzzy.nysiis
                 clj-fuzzy.porter
+                clj-fuzzy.schinke
                 clj-fuzzy.soundex
                 clj-fuzzy.tversky],
    :builds

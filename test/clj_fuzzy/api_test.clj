@@ -37,4 +37,6 @@
           :match true} (m/mra-comparison "Byrne" "Boern"))))
 
 (deftest stemmers-test
-  (is (= "abil" (s/porter "ability"))))
+  (is (= "abil" (s/porter "ability")))
+  (is (= "work" (s/lancaster "worker")))
+  (is (= {:noun "aquil" :verb "aquila"} (s/schinke "aquila"))))
