@@ -97,11 +97,11 @@
     #"ity$" :A         #"ium$" :A         #"ive$" :A         #"ize$" :F
     #"oid$" :A         #"one$" :R         #"ous$" :A
 
-    #"ae$" :A          #"al$" :BB          #"ar$" :X          #"as$" :B
+    #"ae$" :A          #"al$" :BB         #"ar$" :X          #"as$" :B
     #"ed$" :E          #"en$" :F          #"es$" :E          #"ia$" :A
     #"ic$" :A          #"is$" :A          #"ly$" :B          #"on$" :S
     #"or$" :T          #"um$" :U          #"us$" :V          #"yl$" :R
-    #"s'" :A           $"'s$" :A
+    #"s'"  :A          #"'s$" :A
 
     #"a$" :A           #"e$" :A           #"i$" :A           #"o$" :A
     #"s$" :W           #"y$" :B))
@@ -113,18 +113,18 @@
    :C (fn [stem] (> (count stem) 3))
    :D (fn [stem] (> (count stem) 4))
    :E (fn [stem] (not (re-test? #"e$" stem)))
-   :F (fn [stem] (and (conditions :B stem) (conditions :E stem)))
-   :G (fn [stem] (and (conditions :B stem) (re-test? #"f$" stem)))
+   :F (fn [stem] (and ((conditions :B) stem) (conditions :E stem)))
+   :G (fn [stem] (and ((conditions :B) stem) (re-test? #"f$" stem)))
    :H (fn [stem] (re-test? #"(t|ll)$" stem))
    :I (fn [stem] (not (re-test? #"[oe]$" stem)))
    :J (fn [stem] (not (re-test? #"[ae]$" stem)))
-   :K (fn [stem] (and (conditions :B stem) (re-test? #"(l|i|(u\we))$")))
+   :K (fn [stem] (and ((conditions :B) stem) (re-test? #"(l|i|(u\we))$" stem)))
    :L (fn [stem] (not (re-test? #"(u|x|([^o]s))$" stem)))
    :M (fn [stem] (not (re-test? #"[acem]$" stem)))
-   :N (fn [stem] (if (re-test? #"s\w{2}$") (conditions :C stem) (conditions :B stem)))
+   :N (fn [stem] (if (re-test? #"s\w{2}$" stem) ((conditions :C) stem) ((conditions :B) stem)))
    :O (fn [stem] (re-test? #"[li]$" stem))
    :P (fn [stem] (not (re-test? #"c$" stem)))
-   :Q (fn [stem] (and (conditions :B stem) (not (re-test? #"[ln]$" stem))))
+   :Q (fn [stem] (and ((conditions :B) stem) (not (re-test? #"[ln]$" stem))))
    :R (fn [stem] (re-test? #"[nr]$" stem))
    :S (fn [stem] (re-test? #"(dr|[^t]t)$" stem))
    :T (fn [stem] (re-test? #"(s|[^o]t)$" stem))
@@ -135,17 +135,17 @@
    :Y (fn [stem] (re-test? #"in$" stem))
    :Z (fn [stem] (not (re-test? #"f$" stem)))
    :AA (fn [stem] (re-test? #"([dflt]|ph|th|er|or|es)$" stem))
-   :BB (fn [stem] (and (conditions :B stem) (not (re-test? #"(met|ryst)" stem))))
+   :BB (fn [stem] (and ((conditions :B) stem) (not (re-test? #"(met|ryst)" stem))))
    :CC (fn [stem] (re-test? #"l$" stem))})
 
 ;; Transformations
 (defn- dedouble
   "Drop double occurences of certain letters in the given [stem]."
   [stem]
-  (clojure.string/replace stem #"([bdglmnprst])[bdglmnprst]" "$1"))
+  (clojure.string/replace stem #"([bdglmnprst])\1{1,}" "$1"))
 
 (def ^:private transformations
-  '(#"ief$" "iev"
+  '(#"iev$" "ief"
     #"uct$" "uc"
     #"umpt$" "um"
     #"rpt$" "rb"
@@ -191,3 +191,29 @@
   [word]
   (-> (clojure.string/lower-case word)
       (clean)))
+
+(defn- drop-suffix
+  "Drop the longest suffix we can find in the given [word]."
+  [word]
+  (if-let [[match condition] (some #(when (re-test? (first %) word) %) (partition 2 endings))]
+    (let [stem (clojure.string/replace word match "")]
+      (if (and ((conditions condition) stem)
+               (> (count stem) 1))
+        stem
+        word))
+    word))
+
+(defn apply-transformations
+  "Apply the algorithm's transformations to the given [stem]."
+  [stem]
+  (if-let [[match replacement] (some #(when (re-test? (first %) stem) %) (partition 2 transformations))]
+    (clojure.string/replace stem match replacement)
+    stem))
+
+(defn stem
+  "Stem the given [word] according to the algorithm"
+  [word]
+  (-> (prep-word word)
+      (drop-suffix)
+      (dedouble)
+      (apply-transformations)))
