@@ -116,10 +116,10 @@
    :F (fn [stem] (and (conditions :B stem) (conditions :E stem)))
    :G (fn [stem] (and (conditions :B stem) (re-test? #"f$" stem)))
    :H (fn [stem] (re-test? #"(t|ll)$" stem))
-   :G (fn [stem] (not (re-test? #"[oe]$" stem)))
-   :I (fn [stem] (not (re-test? #"[ae]$" stem)))
+   :I (fn [stem] (not (re-test? #"[oe]$" stem)))
+   :J (fn [stem] (not (re-test? #"[ae]$" stem)))
    :K (fn [stem] (and (conditions :B stem) (re-test? #"(l|i|(u\we))$")))
-   :L (fn [stem] (not (re-test? #"(u|x|([^o]s)$" stem)))
+   :L (fn [stem] (not (re-test? #"(u|x|([^o]s))$" stem)))
    :M (fn [stem] (not (re-test? #"[acem]$" stem)))
    :N (fn [stem] (if (re-test? #"s\w{2}$") (conditions :C stem) (conditions :B stem)))
    :O (fn [stem] (re-test? #"[li]$" stem))
@@ -142,7 +142,7 @@
 (defn- dedouble
   "Drop double occurences of certain letters in the given [stem]."
   [stem]
-  (clojure.string/replace stem #"[bdglmnprst]{2}" "$1"))
+  (clojure.string/replace stem #"([bdglmnprst])[bdglmnprst]" "$1"))
 
 (def ^:private transformations
   '(#"ief$" "iev"
@@ -178,3 +178,16 @@
     #"ert$" "ers"
     #"[^n]et$" "es"
     #"(yt|yz)$" "ys"))
+
+;; Helpers
+(defn- clean
+  "Clean a [word] of characters unsupported by the stemmer"
+  [word]
+  (clojure.string/replace word #"[^a-zA-Z']" ""))
+
+;; Main functions
+(defn- prep-word
+  "Prepare a [word] for its passage through the stemmer."
+  [word]
+  (-> (clojure.string/lower-case word)
+      (clean)))
