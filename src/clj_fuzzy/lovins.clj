@@ -131,7 +131,7 @@
    :U (fn [stem] (re-test? #"[lmnr]$" stem))
    :V (fn [stem] (re-test? #"c$" stem))
    :W (fn [stem] (not (re-test? #"[su]$" stem)))
-   :X (fn [stem] (re-test? #"(l|i|u\we)" stem))
+   :X (fn [stem] (re-test? #"(l|i|u\we)$" stem))
    :Y (fn [stem] (re-test? #"in$" stem))
    :Z (fn [stem] (not (re-test? #"f$" stem)))
    :AA (fn [stem] (re-test? #"([dflt]|ph|th|er|or|es)$" stem))
@@ -142,7 +142,7 @@
 (defn- dedouble
   "Drop double occurences of certain letters in the given [stem]."
   [stem]
-  (clojure.string/replace stem #"([bdglmnprst])\1{1,}" "$1"))
+  (clojure.string/replace stem #"([bdglmnprst])\1{1,}$" "$1"))
 
 (def ^:private transformations
   '(#"iev$" "ief"
@@ -153,7 +153,7 @@
     #"istr$" "ister"
     #"metr$" "meter"
     #"olv$" "olut"
-    #"[^aoi]ul$" "l"
+    #"([^aoi])ul$" "$1l"
     #"bex$" "bic"
     #"dex$" "dic"
     #"pex$" "pic"
@@ -168,15 +168,15 @@
     #"lid$" "lis"
     #"erid$" "eris"
     #"pand$" "pans"
-    #"[^s]end$" "ens"
+    #"([^s])end$" "$1ens"
     #"ond$" "ons"
     #"lud$" "lus"
     #"rud$" "rus"
-    #"[^pt]her$" "hes"
+    #"([^pt])her$" "$1hes"
     #"mit$" "mis"
-    #"[^m]ent$" "ens"
+    #"([^m])ent$" "$1ens"
     #"ert$" "ers"
-    #"[^n]et$" "es"
+    #"([^n])et$" "$1es"
     #"(yt|yz)$" "ys"))
 
 ;; Helpers
@@ -192,15 +192,22 @@
   (-> (clojure.string/lower-case word)
       (clean)))
 
+(defn- test-suffix-fn
+  [word]
+  (fn [ending]
+    (let [match (first ending)
+          condition (second ending)
+          stem (clojure.string/replace word match "")]
+      (when (and (< (count stem) (count word))
+                 (> (count stem) 1)
+                 ((conditions condition) stem))
+        stem))))
+
 (defn- drop-suffix
   "Drop the longest suffix we can find in the given [word]."
   [word]
-  (if-let [[match condition] (some #(when (re-test? (first %) word) %) (partition 2 endings))]
-    (let [stem (clojure.string/replace word match "")]
-      (if (and ((conditions condition) stem)
-               (> (count stem) 1))
-        stem
-        word))
+  (if-let [stem (some (test-suffix-fn word) (partition 2 endings))]
+    stem
     word))
 
 (defn apply-transformations
@@ -211,7 +218,7 @@
     stem))
 
 (defn stem
-  "Stem the given [word] according to the algorithm"
+  "Stem the given [word] according to the algorithm."
   [word]
   (-> (prep-word word)
       (drop-suffix)
