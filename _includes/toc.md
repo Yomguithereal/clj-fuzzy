@@ -1,7 +1,7 @@
 **[clj-fuzzy.metrics](#metrics)**
 
 * [Sorensen / Dice coefficient](#dice)
-* [Levensthein distance](#levensthein)
+* [Levenshtein distance](#levenshtein)
 * [Hamming distance](#hamming)
 * [Jaccard / Tanimoto distance](#jaccard)
 * [Jaro-Winkler distance](#jaro)
