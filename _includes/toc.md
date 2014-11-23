@@ -10,7 +10,10 @@
 
 **[clj-fuzzy.stemmers](#stemmers)**
 
-* [Porter stemming](#porter)
+* [Lancaster stemmer](#lancaster)
+* [Lovins stemmer](#lovins)
+* [Porter stemmer](#porter)
+* [Schinke stemmer](#schinke)
 
 **[clj-fuzzy.phonetics](#phonetics)**
 

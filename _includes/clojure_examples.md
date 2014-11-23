@@ -113,7 +113,33 @@
 
 <h3 id="stemmers">clj-fuzzy.stemmers</h4>
 
-<h4 id="porter">Porter stemming</h4>
+<h4 id="lancaster">Lancaster stemmer</h4>
+```clj
+(ns my.clojure-namespace
+  (:use clj-fuzzy.stemmers))
+
+;; Compute the stem of a word
+(lancaster "worker")
+"work"
+
+(lancaster "presumably")
+"presum"
+```
+
+<h4 id="lovins">Lovins stemmer</h4>
+```clj
+(ns my.clojure-namespace
+  (:use clj-fuzzy.stemmers))
+
+;; Compute the stem of a word
+(lovins "nationality")
+"nat"
+
+(lovins "analytic")
+"analys"
+```
+
+<h4 id="porter">Porter stemmer</h4>
 ```clj
 (ns my.clojure-namespace
   (:use clj-fuzzy.stemmers))
@@ -124,6 +150,19 @@
 
 (porter "building")
 "build"
+```
+
+<h4 id="schinke">Schinke stemmer</h4>
+```clj
+(ns my.clojure-namespace
+  (:use clj-fuzzy.stemmers))
+
+;; Compute the stem of a word
+(schinke "aquila")
+{:noun "aquil" :verb "aquila"}
+
+(schinke "apparebunt")
+{:noun "apparebu" :verb "apparebi"}
 ```
 
 ---

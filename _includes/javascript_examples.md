@@ -102,14 +102,44 @@ clj_fuzzy.metrics.tversky(
 
 <h3 id="stemmers">clj-fuzzy.stemmers</h4>
 
-<h4 id="porter">Porter stemming</h4>
+<h4 id="lancaster">Lancaster stemmer</h4>
+```js
+// Compute the stem of a word
+clj_fuzzy.stemmers.lancaster('worker');
+'work'
+
+clj_fuzzy.stemmers.lancaster('presumably');
+'presum'
+```
+
+<h4 id="lovins">Lovins stemmer</h4>
+```js
+// Compute the stem of a word
+clj_fuzzy.stemmers.lovins('nationality');
+'nat'
+
+clj_fuzzy.stemmers.lovins('analytic');
+'analys'
+```
+
+<h4 id="porter">Porter stemmer</h4>
 ```js
 // Compute the stem of a word
 clj_fuzzy.stemmers.porter('adjective');
-"adject"
+'adject'
 
 clj_fuzzy.stemmers.porter('building');
-"build"
+'build'
+```
+
+<h4 id="schinke">Schinke stemmer</h4>
+```js
+// Compute the stem of a word
+clj_fuzzy.stemmers.schinke('aquila');
+{noun: 'aquil', verb: 'aquila'}
+
+clj_fuzzy.stemmers.schinke('apparebunt');
+{noun: 'apparebu', verb: 'apparebi'}
 ```
 
 ---
