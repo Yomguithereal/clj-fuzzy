@@ -20,7 +20,10 @@ The full documentation for this library is available [there](http://yomguitherea
 * [Tversky index](http://en.wikipedia.org/wiki/Tversky_index)
 
 ### Stemmers
-* [Porter stemming](http://en.wikipedia.org/wiki/Stemming)
+* [Lancaster stemmer](http://www.comp.lancs.ac.uk/computing/research/stemming/)
+* [Lovins stemmer](http://snowball.tartarus.org/algorithms/lovins/stemmer.html)
+* [Porter stemmer](http://tartarus.org/martin/PorterStemmer/index-old.html)
+* [Schinke stemmer](http://snowball.tartarus.org/otherapps/schinke/intro.html) (latin)
 
 ### Phonetics
 * [Metaphone](http://en.wikipedia.org/wiki/Metaphone)
