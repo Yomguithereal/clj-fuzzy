@@ -20,17 +20,17 @@ The full documentation for this library is available [there](http://yomguitherea
 * [Tversky index](http://en.wikipedia.org/wiki/Tversky_index)
 
 ### Stemmers
-* [Lancaster stemmer](http://www.comp.lancs.ac.uk/computing/research/stemming/)
-* [Lovins stemmer](http://snowball.tartarus.org/algorithms/lovins/stemmer.html)
-* [Porter stemmer](http://tartarus.org/martin/PorterStemmer/index-old.html)
+* [Lancaster stemmer](http://www.comp.lancs.ac.uk/computing/research/stemming/) (en)
+* [Lovins stemmer](http://snowball.tartarus.org/algorithms/lovins/stemmer.html) (en)
+* [Porter stemmer](http://tartarus.org/martin/PorterStemmer/index-old.html) (en)
 * [Schinke stemmer](http://snowball.tartarus.org/otherapps/schinke/intro.html) (latin)
 
 ### Phonetics
 * [Metaphone](http://en.wikipedia.org/wiki/Metaphone)
 * [Double Metaphone](http://en.wikipedia.org/wiki/Metaphone#Double_Metaphone)
 * [Soundex](http://en.wikipedia.org/wiki/Soundex)
-* [NYSIIS (original & refined)](http://en.wikipedia.org/wiki/New_York_State_Identification_and_Intelligence_System)
-* [Caverphone (original & revisited)](http://en.wikipedia.org/wiki/Caverphone)
+* [NYSIIS](http://en.wikipedia.org/wiki/New_York_State_Identification_and_Intelligence_System) (original & refined)
+* [Caverphone](http://en.wikipedia.org/wiki/Caverphone) (original & revisited)
 * [Cologne Phonetic](http://de.wikipedia.org/wiki/K%C3%B6lner_Phonetik)
 * [MRA codex](http://en.wikipedia.org/wiki/Match_rating_approach)
 
