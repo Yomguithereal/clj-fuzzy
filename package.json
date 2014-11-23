@@ -1,6 +1,6 @@
 {
   "name": "clj-fuzzy",
-  "version": "0.1.9",
+  "version": "0.2.0",
   "description": "A handy collection of algorithms dealing with fuzzy strings and phonetics.",
   "main": "src-js/clj-fuzzy.js",
   "repository": {
@@ -19,11 +19,13 @@
     "hamming",
     "jaccard",
     "jaro-winkler",
+    "lancaster",
     "levenshtein",
     "nysiis",
     "metaphone",
     "porter",
     "lancaster",
+    "schinke",
     "stemmer",
     "soundex",
     "tversky"
