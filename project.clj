@@ -18,6 +18,7 @@
                 clj-fuzzy.jaro_winkler
                 clj-fuzzy.lancaster
                 clj-fuzzy.levenshtein
+                clj-fuzzy.lovins
                 clj-fuzzy.match_rating
                 clj-fuzzy.metaphone
                 clj-fuzzy.nysiis

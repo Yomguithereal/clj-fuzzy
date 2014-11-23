@@ -39,4 +39,5 @@
 (deftest stemmers-test
   (is (= "abil" (s/porter "ability")))
   (is (= "work" (s/lancaster "worker")))
+  (is (= "analys" (s/lovins "analytic")))
   (is (= {:noun "aquil" :verb "aquila"} (s/schinke "aquila"))))
