@@ -57,7 +57,7 @@
       (cond (nil? (seq rule)) [false stem]
             (and (not intact)
                  (= kind :intact)) (recur (inc i))
-            (or (< breakpoint 0)
+            (or (neg? breakpoint)
                 (not= (subs stem breakpoint) match)) (recur (inc i))
             (= kind :protect) [false stem]
             :else (let [new-stem (str (subs stem 0 breakpoint) replacement)]
