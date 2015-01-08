@@ -14,4 +14,5 @@
   (is (= 2 (distance "book" "back")))
   (is (= 1 (distance "hello" "helo")))
   (is (= 8 (distance "good sir" "baal")))
-  (is (= 5 (distance "say" "shiver"))))
+  (is (= 5 (distance "say" "shiver")))
+  (is (= 13 (distance "feature" "get-project-features"))))
