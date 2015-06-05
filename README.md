@@ -5,6 +5,8 @@ clj-fuzzy is a native Clojure library providing a collection of famous algorithm
 
 It can be used in Clojure, ClojureScript, client-side JavaScript and Node.js.
 
+[![Clojars Project](http://clojars.org/clj-fuzzy/latest-version.svg)](http://clojars.org/clj-fuzzy)
+
 ## Full documentation
 The full documentation for this library is available [there](http://yomguithereal.github.io/clj-fuzzy/).
 
