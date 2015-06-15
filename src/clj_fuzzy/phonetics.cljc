@@ -16,12 +16,9 @@
             clj-fuzzy.cologne))
 
 (def ^:export metaphone clj-fuzzy.metaphone/process)
+(def ^:export double-metaphone clj-fuzzy.double-metaphone/process)
 (def ^:export soundex clj-fuzzy.soundex/process)
 (def ^:export nysiis clj-fuzzy.nysiis/process)
 (def ^:export caverphone clj-fuzzy.caverphone/process)
 (def ^:export mra-codex clj-fuzzy.match-rating/mra-codex)
 (def ^:export cologne clj-fuzzy.cologne/process)
-
-;; JavaScript optimizations
-(defn ^:export double-metaphone [word]
-  (clj->js (clj-fuzzy.double-metaphone/process word)))

@@ -12,7 +12,7 @@
             clj-fuzzy.porter
             clj-fuzzy.schinke))
 
-(def lancaster clj-fuzzy.lancaster/stem)
-(def lovins clj-fuzzy.lovins/stem)
-(def porter clj-fuzzy.porter/stem)
-(def schinke clj-fuzzy.schinke/stem)
+(def ^:export lancaster clj-fuzzy.lancaster/stem)
+(def ^:export lovins clj-fuzzy.lovins/stem)
+(def ^:export porter clj-fuzzy.porter/stem)
+(def ^:export schinke clj-fuzzy.schinke/stem)

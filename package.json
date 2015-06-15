@@ -2,7 +2,10 @@
   "name": "clj-fuzzy",
   "version": "0.2.1",
   "description": "A handy collection of algorithms dealing with fuzzy strings and phonetics.",
-  "main": "src-js/clj-fuzzy.js",
+  "main": "src-js/clj-fuzzy.min.js",
+  "scripts": {
+    "build": "./build.sh"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/Yomguithereal/clj-fuzzy"
@@ -37,9 +40,6 @@
   },
   "homepage": "http://yomguithereal.github.io/clj-fuzzy/",
   "devDependencies": {
-    "grunt": "~0.4.0",
-    "grunt-contrib-clean": "^0.6.0",
-    "grunt-contrib-concat": "^0.5.0",
-    "grunt-exec": "^0.4.6"
+    "uglify-js": "^2.4.23"
   }
 }
