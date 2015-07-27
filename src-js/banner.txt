@@ -1,1 +1,1 @@
-/* clj-fuzzy - v0.3.0 - Author: Yomguithereal (Guillaume Plique) - Repository: https://github.com/Yomguithereal/clj-fuzzy */
+/* clj-fuzzy - v0.3.1 - Author: Yomguithereal (Guillaume Plique) - Repository: https://github.com/Yomguithereal/clj-fuzzy */
