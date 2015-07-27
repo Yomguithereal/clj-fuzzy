@@ -16,8 +16,10 @@ project.clj
 bower.json
 
 # Files
+src-js/banner.txt
 src-js/export.js
 src-js/clj-fuzzy.temp.js
+build.sh
 
 # Folders
 node_modules/
