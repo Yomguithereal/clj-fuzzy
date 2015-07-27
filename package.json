@@ -2,7 +2,7 @@
   "name": "clj-fuzzy",
   "version": "0.3.0",
   "description": "A handy collection of algorithms dealing with fuzzy strings and phonetics.",
-  "main": "src-js/clj-fuzzy.min.js",
+  "main": "src-js/clj-fuzzy.js",
   "scripts": {
     "build": "./build.sh",
     "prepublish": "npm run build"
