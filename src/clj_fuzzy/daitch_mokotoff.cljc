@@ -13,8 +13,8 @@
 (def ^:private table
   [[#"^(AI|AJ|AY)" \0   \1   nil]
    [#"^AU"         \0   \7   nil]
-   [#"^Ą"          nil nil [\6 nil]]
-   [#"^A"          \0   nil nil]
+   [#"^Ą"          nil  nil  [\6 nil]]
+   [#"^A"          \0   nil  nil]
    [#"^B"          \7   \7   \7]])
 
 ;; Utilities
@@ -35,9 +35,9 @@
 (defn apply-rule
   "Apply a single [rule] to the current [code]."
   [code rule]
-  (clojure.string/replace code (first rule) (or (second rule) "")))
+  (clojure.string/replace code (first rule) (str (or (second rule) ""))))
 
-;; TODO: treat -> process -> take 6 -> pad
+;; TODO: treat -> process (several options) -> take 6 -> pad
 (defn process
   "Compute the Daitch-Mokotoff soundex code for the given [word]."
   [word]
