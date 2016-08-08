@@ -23,7 +23,11 @@
 (defn distance
   "Compute the levenshtein distance between two [sequences]."
   [sequence1 sequence2]
-  (peek
-    (reduce (fn [previous current] (next-row previous current sequence2))
-            (map #(identity %2) (cons nil sequence2) (range))
-            sequence1)))
+  (cond
+    (and (empty? sequence1) (empty? sequence2)) 0
+    (empty? sequence1) (count sequence2)
+    (empty? sequence2) (count sequence1)
+    :else (peek
+            (reduce (fn [previous current] (next-row previous current sequence2))
+                    (map #(identity %2) (cons nil sequence2) (range))
+                    sequence1))))

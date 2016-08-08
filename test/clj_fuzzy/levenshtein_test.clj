@@ -11,6 +11,9 @@
             [clj-fuzzy.levenshtein :refer :all]))
 
 (deftest levenshtein-test
+  (is (= 0 (distance "" "")))
+  (is (= 3 (distance "" "abc")))
+  (is (= 3 (distance "abc" "")))
   (is (= 2 (distance "book" "back")))
   (is (= 1 (distance "hello" "helo")))
   (is (= 8 (distance "good sir" "baal")))
