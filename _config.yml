@@ -2,7 +2,7 @@ title:        clj-fuzzy
 tagline:      'clj-fuzzy'
 description:  'A handy collection of algorithms dealing with fuzzy strings and phonetics.'
 baseurl:      /clj-fuzzy
-version:      0.2.1
+version:      0.3.2
 author:
   name:       'Yomguithereal'
 markdown:     redcarpet
