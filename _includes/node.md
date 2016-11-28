@@ -18,7 +18,7 @@ Finally, if you need to include the library in your node.js project, add the fol
 ```json
 {
   "dependencies": {
-    "clj-fuzzy": "0.1.8",
+    "clj-fuzzy": "{{ site.version }}"
   }
 }
 ```

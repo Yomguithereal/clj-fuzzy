@@ -1,4 +1,4 @@
-<h3 id="metrics">clj-fuzzy.metrics</h4>
+<h3 id="metrics">clj-fuzzy.metrics</h3>
 
 <h4 id="dice">Sorensen / Dice coefficient</h4>
 ```clj
@@ -111,7 +111,7 @@
 
 ---
 
-<h3 id="stemmers">clj-fuzzy.stemmers</h4>
+<h3 id="stemmers">clj-fuzzy.stemmers</h3>
 
 <h4 id="lancaster">Lancaster stemmer</h4>
 ```clj
@@ -167,7 +167,7 @@
 
 ---
 
-<h3 id="phonetics">clj-fuzzy.phonetics</h4>
+<h3 id="phonetics">clj-fuzzy.phonetics</h3>
 
 <h4 id="metaphone">Metaphone</h4>
 ```clj

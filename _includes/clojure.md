@@ -4,7 +4,7 @@
 To install the lastest version from [clojars](https://clojars.org/), just add the following vector to the `:dependencies` section of your `project.clj` file.
 
 ```clj
-[clj-fuzzy "0.1.8"]
+[clj-fuzzy "{{ site.version }}"]
 ```
 
 Then run `lein deps` to process your dependencies.

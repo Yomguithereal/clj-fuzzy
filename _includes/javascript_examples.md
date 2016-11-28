@@ -1,4 +1,4 @@
-<h3 id="metrics">clj-fuzzy.metrics</h4>
+<h3 id="metrics">clj-fuzzy.metrics</h3>
 
 <h4 id="dice">Sorensen / Dice coefficient</h4>
 ```js
@@ -61,18 +61,20 @@ clj_fuzzy.metrics.jaro_winkler('Dwayne', 'Duane');
 ```
 
 <h4 id="mra">MRA Comparison</h4>
+
 ```js
 // Compare two string using the Match Rating Approach
 clj_fuzzy.metrics.mra_comparison('Byrne', 'Boern');
-{
-	minimum: 4,
-	similarity: 5,
-	code: ['BYRN', 'BRN'],
-	match: true
+>>> {
+  minimum: 4,
+  similarity: 5,
+  code: ['BYRN', 'BRN'],
+  match: true
 }
 ```
 
 <h4 id="tversky">Tversky Index</h4>
+
 ```js
 // Compute the Tversky index of two sequences.
 clj_fuzzy.metrics.tversky('night', 'nacht');
@@ -87,20 +89,20 @@ clj_fuzzy.metrics.tversky('healed', 'sealed', {alpha: 0.5, beta: 0.5});
 // You can also specify whether you want to compute the
 // symmetric variant of the index
 clj_fuzzy.metrics.tversky(
-	'healed',
-	'sealed',
-	{
-		alpha: 1,
-		beta: 1,
-		symmetric: true
-	}
+  'healed',
+  'sealed',
+  {
+    alpha: 1,
+    beta: 1,
+    symmetric: true
+  }
 );
 0.8
 ```
 
 ---
 
-<h3 id="stemmers">clj-fuzzy.stemmers</h4>
+<h3 id="stemmers">clj-fuzzy.stemmers</h3>
 
 <h4 id="lancaster">Lancaster stemmer</h4>
 ```js
@@ -136,15 +138,15 @@ clj_fuzzy.stemmers.porter('building');
 ```js
 // Compute the stem of a word
 clj_fuzzy.stemmers.schinke('aquila');
-{noun: 'aquil', verb: 'aquila'}
+>>> {noun: 'aquil', verb: 'aquila'}
 
 clj_fuzzy.stemmers.schinke('apparebunt');
-{noun: 'apparebu', verb: 'apparebi'}
+>>> {noun: 'apparebu', verb: 'apparebi'}
 ```
 
 ---
 
-<h3 id="phonetics">clj-fuzzy.phonetics</h4>
+<h3 id="phonetics">clj-fuzzy.phonetics</h3>
 
 <h4 id="metaphone">Metaphone</h4>
 ```js
