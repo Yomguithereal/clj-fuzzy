@@ -1,5 +1,11 @@
 ---
 
+## ~Deprecation warning~
+
+Consider this library deprecated for JavaScript.
+
+Indeed, the [Talisman](http://yomguithereal.github.io/talisman/) library can be seen as an improvement over `clj-fuzzy` and is, what's more, written directly in JavaScript.
+
 ## Installation
 To install the latest node version of the library just run
 
