@@ -12,6 +12,10 @@
 (dice "healed" "herded")
 0.4
 
+;; Or if you want to choose the n-grams size
+(dice "bar" "baz" :n 3)
+0
+
 ;; There is also a Sorensen alias
 (sorensen "healed" "herded")
 0.4
