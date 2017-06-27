@@ -15,10 +15,14 @@
   (is (= 0.8222222222222223 (jaro "Dwayne" "Duane")))
   (is (= 0.9444444444444443 (jaro "Martha" "Marhta")))
   (is (= 0.7666666666666666 (jaro "Dixon" "Dicksonx")))
-  (is (= 0.4166666666666667 (jaro "Duane" "Freakishlylongstring"))))
+  (is (= 0.4166666666666667 (jaro "Duane" "Freakishlylongstring")))
+  (is (= 0 (jaro "" "")))
+  (is (= 0 (jaro nil nil))))
 
 (deftest jaro-winkler-test
-  (is (= 1.0 (jaro "Duane" "Duane")))
+  (is (= 1.0 (jaro-winkler "Duane" "Duane")))
+  (is (= 0.0 (jaro-winkler "" "")))
+  (is (= 0.0 (jaro-winkler nil nil)))
   (is (= 0.8400000000000001 (jaro-winkler "Dwayne" "Duane")))
   (is (= 0.961111111111111 (jaro-winkler "Martha" "Marhta")))
   (is (= 0.8133333333333332 (jaro-winkler "Dixon" "Dicksonx")))

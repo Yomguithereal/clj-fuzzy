@@ -63,11 +63,14 @@
 (defn- winkler-prefix [seq1 seq2]
   (loop [i 0
          prefix 0]
-    (if (< i 4)
-      (if (= (get seq1 i) (get seq2 i))
-        (recur (inc i) (inc prefix))
-        (recur 5 prefix))
-      prefix)))
+    (let [p1 (get seq1 i)
+          p2 (get seq2 i)]
+      (if (and (and (some? p1) (some? p2))
+               (< i 4))
+        (if (= p1 p2)
+          (recur (inc i) (inc prefix))
+          (recur 5 prefix))
+        prefix))))
 
 ;; Main Functions
 (defn jaro
