@@ -7,6 +7,7 @@
 ;;   Version: 0.1
 ;;
 (ns clj-fuzzy.helpers
+  (:refer-clojure :exclude [any?])
   (:require clojure.string))
 
 ;; Strings helpers
