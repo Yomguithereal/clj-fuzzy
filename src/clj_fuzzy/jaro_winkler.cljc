@@ -22,7 +22,7 @@
          nseq1-matches seq1-matches
          nseq2-matches seq2-matches]
     (if (and ((complement nil?) j)
-             (<= j window-end))
+             (< j window-end))
       (if (and (not (get seq2-matches j))
                (= ch (get shortest j)))
         (recur nil
