@@ -15,7 +15,9 @@
   (is (= 0.8222222222222223 (jaro "Dwayne" "Duane")))
   (is (= 0.9444444444444443 (jaro "Martha" "Marhta")))
   (is (= 0.7666666666666666 (jaro "Dixon" "Dicksonx")))
-  (is (= 0.4166666666666667 (jaro "Duane" "Freakishlylongstring"))))
+  (is (= 0.4166666666666667 (jaro "Duane" "Freakishlylongstring")))
+  (let [s1 "xxx1" s2 "y123"]
+    (is (= (jaro s1 s2) (jaro s2 s1)))))
 
 (deftest jaro-winkler-test
   (is (= 1.0 (jaro "Duane" "Duane")))
