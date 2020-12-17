@@ -7,6 +7,12 @@ It can be used in Clojure, ClojureScript, client-side JavaScript and Node.js.
 
 [![Clojars Project](http://clojars.org/clj-fuzzy/latest-version.svg)](http://clojars.org/clj-fuzzy)
 
+## ~Deprecation warning~
+
+Consider this library deprecated for JavaScript.
+
+Indeed, the [Talisman](http://yomguithereal.github.io/talisman/) library can be seen as an improvement over `clj-fuzzy` and is, what's more, written directly in JavaScript.
+
 ## Full documentation
 The full documentation for this library is available [there](http://yomguithereal.github.io/clj-fuzzy/).
 
